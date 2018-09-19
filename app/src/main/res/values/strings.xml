@@ -6,6 +6,9 @@
     <string name="home_page_glossary_button">Glossary</string>
     <string name="home_page_character_name">Rune Gemwall</string>
 
+    <string name="hp">HP: </string>
+    <string name="ac">AC: </string>
+    <string name="speed">Speed: </string>
     <string name="stats_tab1">Core</string>
     <string name="stats_tab2">Skills</string>
     <string name="stats_tab3">Saving</string>

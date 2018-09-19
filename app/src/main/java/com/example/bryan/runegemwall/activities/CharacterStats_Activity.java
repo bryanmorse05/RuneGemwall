@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.FrameLayout;
 
 import com.example.bryan.runegemwall.fragments.CoreStats_Fragment;
 import com.example.bryan.runegemwall.fragments.Equipment_Fragment;
@@ -18,7 +19,7 @@ import com.example.bryan.runegemwall.fragments.Skills_Fragment;
 
 public class CharacterStats_Activity extends AppCompatActivity {
 
-    ConstraintLayout statsLayout;
+    FrameLayout statsLayout;
     TabLayout tabLayout;
 
     @Override

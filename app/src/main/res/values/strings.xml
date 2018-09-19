@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">RuneGemwall</string>
+    <string name="home_page_stats_button">Stats</string>
+    <string name="home_page_lore_button">Lore</string>
+    <string name="home_page_store_button">Store</string>
+    <string name="home_page_glossary_button">Glossary</string>
+    <string name="home_page_character_name">Rune Gemwall</string>
 </resources>

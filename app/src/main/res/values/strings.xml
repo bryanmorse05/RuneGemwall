@@ -6,6 +6,12 @@
     <string name="home_page_glossary_button">Glossary</string>
     <string name="home_page_character_name">Rune Gemwall</string>
 
+    <string name="stats_tab1">Core</string>
+    <string name="stats_tab2">Skills</string>
+    <string name="stats_tab3">Saving</string>
+    <string name="stats_tab4">Equip</string>
+    <string name="stats_tab5">Traits</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

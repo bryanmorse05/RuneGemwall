@@ -1,17 +1,24 @@
-package com.example.bryan.runegemwall;
+package com.example.bryan.runegemwall.activities;
 
 //import android.app.Fragment;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.FrameLayout;
+
+import com.example.bryan.runegemwall.fragments.CoreStats_Fragment;
+import com.example.bryan.runegemwall.fragments.Equipment_Fragment;
+import com.example.bryan.runegemwall.R;
+import com.example.bryan.runegemwall.fragments.FeaturesTraits_Fragment;
+import com.example.bryan.runegemwall.fragments.SavingThrows_Fragment;
+import com.example.bryan.runegemwall.fragments.Skills_Fragment;
 
 public class CharacterStats_Activity extends AppCompatActivity {
 
-    FrameLayout statsFrameLayout;
+    ConstraintLayout statsLayout;
     TabLayout tabLayout;
 
     @Override
@@ -19,7 +26,7 @@ public class CharacterStats_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_stats_);
 
-        statsFrameLayout = findViewById(R.id.statsLayout);
+        statsLayout = findViewById(R.id.statsLayout);
         tabLayout = findViewById(R.id.statsTabLayout);
 
         //Code that will display the character core stats first (the first tab)
@@ -29,8 +36,7 @@ public class CharacterStats_Activity extends AppCompatActivity {
         sft.replace(R.id.statsLayout, startingFragment);
         sft.commit();
 
-        //perform setOnTabSelectedlistener even on TabLayout
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -42,13 +48,16 @@ public class CharacterStats_Activity extends AppCompatActivity {
                         fragment = new CoreStats_Fragment();
                         break;
                     case 1:
-                        fragment = new Abilities_Fragment();
+                        fragment = new Skills_Fragment();
                         break;
                     case 2:
-                        fragment = new SkillsTalents_Fragment();
+                        fragment = new SavingThrows_Fragment();
                         break;
                     case 3:
                         fragment = new Equipment_Fragment();
+                        break;
+                    case 4:
+                        fragment = new FeaturesTraits_Fragment();
                         break;
                 }
 

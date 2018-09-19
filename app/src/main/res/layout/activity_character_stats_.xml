@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/statsLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CharacterStats_Activity">
 
     <android.support.design.widget.TabLayout
+        android:id="@+id/statsTabLayout"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        app:tabGravity="fill" app:tabMode="fixed"
+        app:tabGravity="fill"
+        app:tabMode="fixed"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:id="@+id/statsTabLayout">
+        android:layout_alignParentTop="true" >
 
         <android.support.design.widget.TabItem
             android:layout_height="wrap_content"
@@ -36,4 +39,4 @@
 
     </android.support.design.widget.TabLayout>
 
-</android.support.constraint.ConstraintLayout>
+</FrameLayout>

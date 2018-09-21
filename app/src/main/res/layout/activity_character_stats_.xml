@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/statsConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.CharacterStats_Activity">
@@ -19,13 +20,19 @@
 
     <EditText
         android:id="@+id/currentHitPoints"
-        android:layout_width="wrap_content"
+        android:layout_width="40dp"
         android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:maxLength="3"
+        android:cursorVisible="false"
+        android:imeOptions="actionDone"
+        android:theme="@style/MyCustomEditTextTheme"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/statsTabLayout"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/currentArmorClass"
-
         android:text="0"/>
 
     <TextView
@@ -42,6 +49,13 @@
         android:id="@+id/currentArmorClass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:maxLength="2"
+        android:cursorVisible="false"
+        android:imeOptions="actionDone"
+        android:theme="@style/MyCustomEditTextTheme"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@id/currentHitPoints"
         app:layout_constraintBottom_toTopOf="@id/statsTabLayout"
@@ -62,6 +76,13 @@
         android:id="@+id/currentCharacterSpeed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:maxLength="2"
+        android:cursorVisible="false"
+        android:imeOptions="actionDone"
+        android:theme="@style/MyCustomEditTextTheme"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@id/currentArmorClass"
         app:layout_constraintRight_toRightOf="parent"
@@ -74,10 +95,10 @@
         android:layout_width="match_parent"
         app:tabGravity="fill"
         app:tabMode="fixed"
-        app:tabTextAppearance="@style/MyCustomTabText"
+        app:tabTextAppearance="@style/MyCustomTabTextTheme"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/statsLayout"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="140dp">
 
         <android.support.design.widget.TabItem
             android:layout_height="wrap_content"

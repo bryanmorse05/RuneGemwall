@@ -25,11 +25,11 @@ import com.example.bryan.runegemwall.fragments.Skills_Fragment;
 
 public class CharacterStats_Activity extends AppCompatActivity {
 
-    ConstraintLayout statsConstraintLayout;
-    FrameLayout statsLayout;
+    ConstraintLayout statsConstraintLayout;     //THE BIG ONE  The entire activity layout
+    ConstraintLayout statsLayout;               //The layout view to be replaced
     TabLayout tabLayout;
     EditText currentHitPoints, currentArmorClass, currentCharacterSpeed;
-    TextView hitPointsText;
+    TextView hitPointsText;                     //Only need to set the focus on it instead of the EditText fields
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,14 @@ public class CharacterStats_Activity extends AppCompatActivity {
         currentArmorClass = findViewById(R.id.currentArmorClass);
         currentCharacterSpeed = findViewById(R.id.currentCharacterSpeed);
         hitPointsText = findViewById(R.id.hitPointsText);
+
+        //Back button enabled
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Stats");
+
+        //The text field is focused by default so the HP EditText is not
+        hitPointsText.setFocusableInTouchMode(true);
+        hitPointsText.requestFocus();
 
         //When the fields are touched is when the cursor appears.  It appears always on by default
         currentHitPoints.setOnClickListener(new View.OnClickListener() {

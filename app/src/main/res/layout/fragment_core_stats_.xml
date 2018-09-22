@@ -1,15 +1,294 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coreStatsConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="140dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.CoreStats_Fragment">
 
-    <TextView
+    <!-- Strength row -->
+
+    <EditText
+        android:id="@+id/baseStrength"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:maxLength="2"
+        android:cursorVisible="false"
+        android:imeOptions="actionDone"
+        android:theme="@style/MyCustomEditTextTheme"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="Core Stats"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/baseDexterity"
+        android:layout_marginLeft="75dp"
+        android:text="0"/>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/baseStrengthText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/baseStrength"
+        app:layout_constraintBottom_toBottomOf="@id/baseStrength"
+        app:layout_constraintLeft_toRightOf="@id/baseStrength"
+        app:layout_constraintRight_toLeftOf="@id/strengthModifier"
+        android:text="Strength"/>
+
+    <TextView
+        android:id="@+id/strengthModifier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/baseStrength"
+        app:layout_constraintBottom_toBottomOf="@id/baseStrength"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="75dp"
+        android:text="0"/>
+
+    <!-- Dexterity row -->
+
+    <EditText
+        android:id="@+id/baseDexterity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:maxLength="2"
+        android:cursorVisible="false"
+        android:imeOptions="actionDone"
+        android:theme="@style/MyCustomEditTextTheme"
+        app:layout_constraintTop_toBottomOf="@id/baseStrength"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/baseConstitution"
+        android:layout_marginLeft="75dp"
+        android:text="0"/>
+
+    <TextView
+        android:id="@+id/baseDexterityText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/baseDexterity"
+        app:layout_constraintBottom_toBottomOf="@id/baseDexterity"
+        app:layout_constraintLeft_toRightOf="@id/baseDexterity"
+        app:layout_constraintRight_toLeftOf="@id/dexterityModifier"
+        android:text="Dexterity"/>
+
+    <TextView
+        android:id="@+id/dexterityModifier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/baseDexterity"
+        app:layout_constraintBottom_toBottomOf="@id/baseDexterity"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="75dp"
+        android:text="0"/>
+
+    <!-- Constitution row -->
+
+    <EditText
+        android:id="@+id/baseConstitution"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:maxLength="2"
+        android:cursorVisible="false"
+        android:imeOptions="actionDone"
+        android:theme="@style/MyCustomEditTextTheme"
+        app:layout_constraintTop_toBottomOf="@id/baseDexterity"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/baseIntelligence"
+        android:layout_marginLeft="75dp"
+        android:text="0"/>
+
+    <TextView
+        android:id="@+id/baseConstitutionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/baseConstitution"
+        app:layout_constraintBottom_toBottomOf="@id/baseConstitution"
+        app:layout_constraintLeft_toRightOf="@id/baseConstitution"
+        app:layout_constraintRight_toLeftOf="@id/constitutionModifier"
+        android:text="Constitution"/>
+
+    <TextView
+        android:id="@+id/constitutionModifier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/baseConstitution"
+        app:layout_constraintBottom_toBottomOf="@id/baseConstitution"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="75dp"
+        android:text="0"/>
+
+    <!-- Intelligence row -->
+
+    <EditText
+        android:id="@+id/baseIntelligence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:maxLength="2"
+        android:cursorVisible="false"
+        android:imeOptions="actionDone"
+        android:theme="@style/MyCustomEditTextTheme"
+        app:layout_constraintTop_toBottomOf="@id/baseConstitution"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/baseWisdom"
+        android:layout_marginLeft="75dp"
+        android:text="0"/>
+
+    <TextView
+        android:id="@+id/baseIntelligenceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/baseIntelligence"
+        app:layout_constraintBottom_toBottomOf="@id/baseIntelligence"
+        app:layout_constraintLeft_toRightOf="@id/baseIntelligence"
+        app:layout_constraintRight_toLeftOf="@id/intelligenceModifier"
+        android:text="Intelligence"/>
+
+    <TextView
+        android:id="@+id/intelligenceModifier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/baseIntelligence"
+        app:layout_constraintBottom_toBottomOf="@id/baseIntelligence"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="75dp"
+        android:text="0"/>
+
+    <!-- Wisdom row -->
+
+    <EditText
+        android:id="@+id/baseWisdom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:maxLength="2"
+        android:cursorVisible="false"
+        android:imeOptions="actionDone"
+        android:theme="@style/MyCustomEditTextTheme"
+        app:layout_constraintTop_toBottomOf="@id/baseIntelligence"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/baseCharisma"
+        android:layout_marginLeft="75dp"
+        android:text="0"/>
+
+    <TextView
+        android:id="@+id/baseWisdomText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/baseWisdom"
+        app:layout_constraintBottom_toBottomOf="@id/baseWisdom"
+        app:layout_constraintLeft_toRightOf="@id/baseWisdom"
+        app:layout_constraintRight_toLeftOf="@id/wisdomModifier"
+        android:text="Wisdom"/>
+
+    <TextView
+        android:id="@+id/wisdomModifier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/baseWisdom"
+        app:layout_constraintBottom_toBottomOf="@id/baseWisdom"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="75dp"
+        android:text="0"/>
+
+    <!-- Charisma row -->
+
+    <EditText
+        android:id="@+id/baseCharisma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:maxLength="2"
+        android:cursorVisible="false"
+        android:imeOptions="actionDone"
+        android:theme="@style/MyCustomEditTextTheme"
+        app:layout_constraintTop_toBottomOf="@id/baseWisdom"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/initiativeText"
+        android:layout_marginLeft="75dp"
+        android:text="0"/>
+
+    <TextView
+        android:id="@+id/baseCharismaText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/baseCharisma"
+        app:layout_constraintBottom_toBottomOf="@id/baseCharisma"
+        app:layout_constraintLeft_toRightOf="@id/baseCharisma"
+        app:layout_constraintRight_toLeftOf="@id/charismaModifier"
+        android:text="Charisma"/>
+
+    <TextView
+        android:id="@+id/charismaModifier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/baseCharisma"
+        app:layout_constraintBottom_toBottomOf="@id/baseCharisma"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="75dp"
+        android:text="0"/>
+
+    <!-- Initiative row -->
+
+    <TextView
+        android:id="@+id/initiativeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:padding="20dp"
+        app:layout_constraintTop_toBottomOf="@id/baseCharisma"
+        app:layout_constraintBottom_toTopOf="@id/passivePerceptionText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/initiativeValue"
+        android:text="Initiative"/>
+
+    <TextView
+        android:id="@+id/initiativeValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/initiativeText"
+        app:layout_constraintBottom_toTopOf="@id/initiativeText"
+        app:layout_constraintLeft_toRightOf="@id/initiativeText"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="0"/>
+
+    <!-- Passive Perception row -->
+
+    <TextView
+        android:id="@+id/passivePerceptionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:padding="20dp"
+        app:layout_constraintTop_toBottomOf="@id/initiativeText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/passivePerceptionValue"
+        android:text="Passive Perception"/>
+
+    <TextView
+        android:id="@+id/passivePerceptionValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/passivePerceptionText"
+        app:layout_constraintBottom_toTopOf="@id/passivePerceptionText"
+        app:layout_constraintLeft_toRightOf="@id/passivePerceptionText"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="0"/>
+
+</android.support.constraint.ConstraintLayout>

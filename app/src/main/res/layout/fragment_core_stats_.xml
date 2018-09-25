@@ -5,9 +5,11 @@
     android:id="@+id/coreStatsConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="140dp"
+    android:layout_marginBottom="100dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.CoreStats_Fragment">
+
+
 
     <!-- Strength row -->
 
@@ -15,6 +17,7 @@
         android:id="@+id/baseStrength"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="16sp"
         android:maxLines="1"
         android:inputType="number"
         android:textAlignment="center"
@@ -25,8 +28,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@id/baseDexterity"
-        android:layout_marginLeft="75dp"
-        android:text="0"/>
+        android:layout_marginStart="75dp" />
 
     <TextView
         android:id="@+id/baseStrengthText"
@@ -36,17 +38,18 @@
         app:layout_constraintBottom_toBottomOf="@id/baseStrength"
         app:layout_constraintLeft_toRightOf="@id/baseStrength"
         app:layout_constraintRight_toLeftOf="@id/strengthModifier"
-        android:text="Strength"/>
+        android:text="@string/strength" />
 
     <TextView
         android:id="@+id/strengthModifier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textColor="@color/colorBlack"
         app:layout_constraintTop_toTopOf="@id/baseStrength"
         app:layout_constraintBottom_toBottomOf="@id/baseStrength"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="75dp"
-        android:text="0"/>
+        android:layout_marginEnd="75dp" />
 
     <!-- Dexterity row -->
 
@@ -54,6 +57,7 @@
         android:id="@+id/baseDexterity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="16sp"
         android:maxLines="1"
         android:inputType="number"
         android:textAlignment="center"
@@ -64,8 +68,7 @@
         app:layout_constraintTop_toBottomOf="@id/baseStrength"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@id/baseConstitution"
-        android:layout_marginLeft="75dp"
-        android:text="0"/>
+        android:layout_marginStart="75dp" />
 
     <TextView
         android:id="@+id/baseDexterityText"
@@ -75,17 +78,18 @@
         app:layout_constraintBottom_toBottomOf="@id/baseDexterity"
         app:layout_constraintLeft_toRightOf="@id/baseDexterity"
         app:layout_constraintRight_toLeftOf="@id/dexterityModifier"
-        android:text="Dexterity"/>
+        android:text="@string/dexterity"/>
 
     <TextView
         android:id="@+id/dexterityModifier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textColor="@color/colorBlack"
         app:layout_constraintTop_toTopOf="@id/baseDexterity"
         app:layout_constraintBottom_toBottomOf="@id/baseDexterity"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="75dp"
-        android:text="0"/>
+        android:layout_marginEnd="75dp" />
 
     <!-- Constitution row -->
 
@@ -93,6 +97,7 @@
         android:id="@+id/baseConstitution"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="16sp"
         android:maxLines="1"
         android:inputType="number"
         android:textAlignment="center"
@@ -103,8 +108,7 @@
         app:layout_constraintTop_toBottomOf="@id/baseDexterity"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@id/baseIntelligence"
-        android:layout_marginLeft="75dp"
-        android:text="0"/>
+        android:layout_marginStart="75dp" />
 
     <TextView
         android:id="@+id/baseConstitutionText"
@@ -114,17 +118,18 @@
         app:layout_constraintBottom_toBottomOf="@id/baseConstitution"
         app:layout_constraintLeft_toRightOf="@id/baseConstitution"
         app:layout_constraintRight_toLeftOf="@id/constitutionModifier"
-        android:text="Constitution"/>
+        android:text="@string/constitution"/>
 
     <TextView
         android:id="@+id/constitutionModifier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textColor="@color/colorBlack"
         app:layout_constraintTop_toTopOf="@id/baseConstitution"
         app:layout_constraintBottom_toBottomOf="@id/baseConstitution"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="75dp"
-        android:text="0"/>
+        android:layout_marginEnd="75dp" />
 
     <!-- Intelligence row -->
 
@@ -132,6 +137,7 @@
         android:id="@+id/baseIntelligence"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="16sp"
         android:maxLines="1"
         android:inputType="number"
         android:textAlignment="center"
@@ -142,8 +148,7 @@
         app:layout_constraintTop_toBottomOf="@id/baseConstitution"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@id/baseWisdom"
-        android:layout_marginLeft="75dp"
-        android:text="0"/>
+        android:layout_marginStart="75dp" />
 
     <TextView
         android:id="@+id/baseIntelligenceText"
@@ -153,17 +158,18 @@
         app:layout_constraintBottom_toBottomOf="@id/baseIntelligence"
         app:layout_constraintLeft_toRightOf="@id/baseIntelligence"
         app:layout_constraintRight_toLeftOf="@id/intelligenceModifier"
-        android:text="Intelligence"/>
+        android:text="@string/intelligence"/>
 
     <TextView
         android:id="@+id/intelligenceModifier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textColor="@color/colorBlack"
         app:layout_constraintTop_toTopOf="@id/baseIntelligence"
         app:layout_constraintBottom_toBottomOf="@id/baseIntelligence"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="75dp"
-        android:text="0"/>
+        android:layout_marginEnd="75dp" />
 
     <!-- Wisdom row -->
 
@@ -171,6 +177,7 @@
         android:id="@+id/baseWisdom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="16sp"
         android:maxLines="1"
         android:inputType="number"
         android:textAlignment="center"
@@ -181,8 +188,7 @@
         app:layout_constraintTop_toBottomOf="@id/baseIntelligence"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@id/baseCharisma"
-        android:layout_marginLeft="75dp"
-        android:text="0"/>
+        android:layout_marginStart="75dp" />
 
     <TextView
         android:id="@+id/baseWisdomText"
@@ -192,17 +198,18 @@
         app:layout_constraintBottom_toBottomOf="@id/baseWisdom"
         app:layout_constraintLeft_toRightOf="@id/baseWisdom"
         app:layout_constraintRight_toLeftOf="@id/wisdomModifier"
-        android:text="Wisdom"/>
+        android:text="@string/wisdom"/>
 
     <TextView
         android:id="@+id/wisdomModifier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textColor="@color/colorBlack"
         app:layout_constraintTop_toTopOf="@id/baseWisdom"
         app:layout_constraintBottom_toBottomOf="@id/baseWisdom"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="75dp"
-        android:text="0"/>
+        android:layout_marginEnd="75dp" />
 
     <!-- Charisma row -->
 
@@ -210,6 +217,7 @@
         android:id="@+id/baseCharisma"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="16sp"
         android:maxLines="1"
         android:inputType="number"
         android:textAlignment="center"
@@ -219,9 +227,8 @@
         android:theme="@style/MyCustomEditTextTheme"
         app:layout_constraintTop_toBottomOf="@id/baseWisdom"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/initiativeText"
-        android:layout_marginLeft="75dp"
-        android:text="0"/>
+        app:layout_constraintBottom_toTopOf="@id/maxHPText"
+        android:layout_marginStart="75dp" />
 
     <TextView
         android:id="@+id/baseCharismaText"
@@ -231,17 +238,50 @@
         app:layout_constraintBottom_toBottomOf="@id/baseCharisma"
         app:layout_constraintLeft_toRightOf="@id/baseCharisma"
         app:layout_constraintRight_toLeftOf="@id/charismaModifier"
-        android:text="Charisma"/>
+        android:text="@string/charisma"/>
 
     <TextView
         android:id="@+id/charismaModifier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textColor="@color/colorBlack"
         app:layout_constraintTop_toTopOf="@id/baseCharisma"
         app:layout_constraintBottom_toBottomOf="@id/baseCharisma"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="75dp"
-        android:text="0"/>
+        android:layout_marginEnd="75dp" />
+
+
+
+    <!-- Max HP row -->
+
+    <TextView
+        android:id="@+id/maxHPText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:padding="20dp"
+        app:layout_constraintTop_toBottomOf="@id/baseCharisma"
+        app:layout_constraintBottom_toTopOf="@id/initiativeText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/maxHPValue"
+        android:text="@string/maxHP"/>
+
+    <EditText
+        android:id="@+id/maxHPValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:maxLength="3"
+        android:cursorVisible="false"
+        android:imeOptions="actionDone"
+        android:theme="@style/MyCustomEditTextTheme"
+        app:layout_constraintTop_toBottomOf="@id/maxHPText"
+        app:layout_constraintBottom_toTopOf="@id/maxHPText"
+        app:layout_constraintLeft_toRightOf="@id/maxHPText"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <!-- Initiative row -->
 
@@ -251,21 +291,22 @@
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_chainStyle="packed"
         android:padding="20dp"
-        app:layout_constraintTop_toBottomOf="@id/baseCharisma"
+        app:layout_constraintTop_toBottomOf="@id/maxHPText"
         app:layout_constraintBottom_toTopOf="@id/passivePerceptionText"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/initiativeValue"
-        android:text="Initiative"/>
+        android:text="@string/initiative"/>
 
     <TextView
         android:id="@+id/initiativeValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/colorBlack"
         app:layout_constraintTop_toBottomOf="@id/initiativeText"
         app:layout_constraintBottom_toTopOf="@id/initiativeText"
         app:layout_constraintLeft_toRightOf="@id/initiativeText"
-        app:layout_constraintRight_toRightOf="parent"
-        android:text="0"/>
+        app:layout_constraintRight_toRightOf="parent" />
 
     <!-- Passive Perception row -->
 
@@ -279,16 +320,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/passivePerceptionValue"
-        android:text="Passive Perception"/>
+        android:text="@string/passivePerception"/>
 
     <TextView
         android:id="@+id/passivePerceptionValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textColor="@color/colorBlack"
         app:layout_constraintTop_toBottomOf="@id/passivePerceptionText"
         app:layout_constraintBottom_toTopOf="@id/passivePerceptionText"
         app:layout_constraintLeft_toRightOf="@id/passivePerceptionText"
-        app:layout_constraintRight_toRightOf="parent"
-        android:text="0"/>
+        app:layout_constraintRight_toRightOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

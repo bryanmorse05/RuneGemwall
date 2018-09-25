@@ -3,6 +3,7 @@ package com.example.bryan.runegemwall.activities;
 //import android.app.Fragment;
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.design.widget.TabLayout;
@@ -13,7 +14,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.bryan.runegemwall.fragments.CoreStats_Fragment;
@@ -28,8 +28,9 @@ public class CharacterStats_Activity extends AppCompatActivity {
     ConstraintLayout statsConstraintLayout;     //THE BIG ONE  The entire activity layout
     ConstraintLayout statsLayout;               //The layout view to be replaced
     TabLayout tabLayout;
-    EditText currentHitPoints, currentArmorClass, currentCharacterSpeed;
+    EditText currentHitPointsET, currentArmorClassET, currentCharacterSpeedET, currentCharacterLevelET;
     TextView hitPointsText;                     //Only need to set the focus on it instead of the EditText fields
+    Integer hitPointsValue, armorClassValue, characterSpeedValue, characterLevelValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +40,10 @@ public class CharacterStats_Activity extends AppCompatActivity {
         statsConstraintLayout = findViewById(R.id.statsConstraintLayout);
         statsLayout = findViewById(R.id.statsLayout);
         tabLayout = findViewById(R.id.statsTabLayout);
-        currentHitPoints = findViewById(R.id.currentHitPoints);
-        currentArmorClass = findViewById(R.id.currentArmorClass);
-        currentCharacterSpeed = findViewById(R.id.currentCharacterSpeed);
+        currentHitPointsET = findViewById(R.id.currentHitPoints);
+        currentArmorClassET = findViewById(R.id.currentArmorClass);
+        currentCharacterSpeedET = findViewById(R.id.currentCharacterSpeed);
+        currentCharacterLevelET = findViewById(R.id.currentCharacterLevel);
         hitPointsText = findViewById(R.id.hitPointsText);
 
         //Back button enabled
@@ -52,25 +54,48 @@ public class CharacterStats_Activity extends AppCompatActivity {
         hitPointsText.setFocusableInTouchMode(true);
         hitPointsText.requestFocus();
 
+        //Load the values for HP, AC, SPD, and LVL
+        SharedPreferences sharedPreferences = getSharedPreferences("RuneGemwallSaveData", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit(); //write to the file
+        hitPointsValue = sharedPreferences.getInt("CharacterHP", 0);
+        armorClassValue = sharedPreferences.getInt("CharacterAC", 0);
+        characterSpeedValue = sharedPreferences.getInt("CharacterSpeed", 0);
+        characterLevelValue = sharedPreferences.getInt("CharacterLevel", 0);
+
+        //Populate the corresponding EditText fields
+        currentHitPointsET.setText(String.valueOf(hitPointsValue));
+        currentArmorClassET.setText(String.valueOf(armorClassValue));
+        currentCharacterSpeedET.setText(String.valueOf(characterSpeedValue));
+        currentCharacterLevelET.setText(String.valueOf(characterLevelValue));
+
+
+
         //When the fields are touched is when the cursor appears.  It appears always on by default
-        currentHitPoints.setOnClickListener(new View.OnClickListener() {
+        currentHitPointsET.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentHitPoints.setCursorVisible(true);
+                currentHitPointsET.setCursorVisible(true);
             }
         });
 
-        currentArmorClass.setOnClickListener(new View.OnClickListener() {
+        currentArmorClassET.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentArmorClass.setCursorVisible(true);
+                currentArmorClassET.setCursorVisible(true);
             }
         });
 
-        currentCharacterSpeed.setOnClickListener(new View.OnClickListener() {
+        currentCharacterSpeedET.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentCharacterSpeed.setCursorVisible(true);
+                currentCharacterSpeedET.setCursorVisible(true);
+            }
+        });
+
+        currentCharacterLevelET.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentCharacterLevelET.setCursorVisible(true);
             }
         });
 
@@ -79,20 +104,20 @@ public class CharacterStats_Activity extends AppCompatActivity {
         statsConstraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentHitPoints.setCursorVisible(false);
-                currentArmorClass.setCursorVisible(false);
-                currentCharacterSpeed.setCursorVisible(false);
+                currentHitPointsET.setCursorVisible(false);
+                currentArmorClassET.setCursorVisible(false);
+                currentCharacterSpeedET.setCursorVisible(false);
+                currentCharacterLevelET.setCursorVisible(false);
 
                 //I only need this so the focus is on something else other than the editText fields
                 hitPointsText.setFocusableInTouchMode(true);
                 hitPointsText.requestFocus();
 
+                //Hides the keyboard from view
                 hideKeyboardFrom(getApplicationContext(), view);
 
             }
         });
-
-
 
         //Code that will display the character core stats first (the first tab)
         Fragment startingFragment = new CoreStats_Fragment();

@@ -3,12 +3,9 @@ package com.example.bryan.runegemwall.fragments;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,17 +13,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.bryan.runegemwall.R;
-import com.example.bryan.runegemwall.activities.HomePage_Activity;
 
 public class CoreStats_Fragment extends Fragment {
 
-    EditText strengthValueET, dexterityValueET, constituationValueET, intelligenceValueET, wisdomValueET, charismaValueET;
+    EditText strengthValueET, dexterityValueET, constitutionValueET, intelligenceValueET, wisdomValueET, charismaValueET;
     EditText maxHPET;
-    TextView strengthModTV, dexterityModTV, constituationModTV, intelligenceModTV, wisdomModTV, charismaModTV;
-    TextView initiativeValue, passivePerceptionValue;
+    TextView strengthModTV, dexterityModTV, constitutionModTV, intelligenceModTV, wisdomModTV, charismaModTV;
+    TextView initiativeTV, passivePerceptionTV;
     Integer strengthValue, dexterityValue, constitutionValue, intelligenceValue, wisdomValue, charismaValue;
     Integer strengthMod, dexterityMod, constitutionMod, intelligenceMod, wisdomMod, charismaMod;
-    Integer maxHPValue;
+    Integer maxHPValue, passivePerceptionValue;
 
     public CoreStats_Fragment() {
         // Required empty public constructor
@@ -47,7 +43,6 @@ public class CoreStats_Fragment extends Fragment {
 
         //Load the preference file
         SharedPreferences sharedPreferences = getContext().getSharedPreferences("RuneGemwallSaveData", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit(); //access the file
         strengthValue = sharedPreferences.getInt("StrengthValue", 0);
         dexterityValue = sharedPreferences.getInt("DexterityValue", 0);
         constitutionValue = sharedPreferences.getInt("ConstitutionValue", 0);
@@ -59,35 +54,40 @@ public class CoreStats_Fragment extends Fragment {
         //Attaching the widgets
         strengthModTV = view.findViewById(R.id.strengthModifier);
         dexterityModTV = view.findViewById(R.id.dexterityModifier);
-        constituationModTV = view.findViewById(R.id.constitutionModifier);
+        constitutionModTV = view.findViewById(R.id.constitutionModifier);
         intelligenceModTV = view.findViewById(R.id.intelligenceModifier);
         wisdomModTV = view.findViewById(R.id.wisdomModifier);
         charismaModTV = view.findViewById(R.id.charismaModifier);
 
         strengthValueET = view.findViewById(R.id.baseStrength);
         dexterityValueET = view.findViewById(R.id.baseDexterity);
-        constituationValueET = view.findViewById(R.id.baseConstitution);
+        constitutionValueET = view.findViewById(R.id.baseConstitution);
         intelligenceValueET = view.findViewById(R.id.baseIntelligence);
         wisdomValueET = view.findViewById(R.id.baseWisdom);
         charismaValueET = view.findViewById(R.id.baseCharisma);
 
-        initiativeValue = view.findViewById(R.id.initiativeValue);
-        passivePerceptionValue = view.findViewById(R.id.passivePerceptionValue);
+        initiativeTV = view.findViewById(R.id.initiativeValue);
+        passivePerceptionTV = view.findViewById(R.id.passivePerceptionValue);
         maxHPET = view.findViewById(R.id.maxHPValue);
 
         //Fill in the stats
         strengthValueET.setText(String.valueOf(strengthValue));
         dexterityValueET.setText(String.valueOf(dexterityValue));
-        constituationValueET.setText(String.valueOf(constitutionValue));
+        constitutionValueET.setText(String.valueOf(constitutionValue));
         intelligenceValueET.setText(String.valueOf(intelligenceValue));
         wisdomValueET.setText(String.valueOf(wisdomValue));
         charismaValueET.setText(String.valueOf(charismaValue));
-
+        maxHPET.setText(String.valueOf(maxHPValue));
 
 
         //Calculation and displaying the mod values are handled here:
-        CalculateAndDisplayModifiers();
-
+        calculateModifier("str");
+        calculateModifier("dex");
+        calculateModifier("con");
+        calculateModifier("int");
+        calculateModifier("wis");
+        calculateModifier("cha");
+        displayModifiers();
 
         strengthValueET.addTextChangedListener(new TextWatcher() {
             @Override
@@ -97,14 +97,15 @@ public class CoreStats_Fragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                calculateModifier("str");
+                updateModifiers("str");
+                saveData("str");
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                CalculateAndDisplayModifiers();
-//                SaveData();
-                Log.d("Strength:", "afterTextChanged called");
+
+
             }
         });
 
@@ -116,17 +117,18 @@ public class CoreStats_Fragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                calculateModifier("dex");
+                updateModifiers("dex");
+                saveData("dex");
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                CalculateAndDisplayModifiers();
-                SaveData();
+
             }
         });
 
-        constituationValueET.addTextChangedListener(new TextWatcher() {
+        constitutionValueET.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -134,13 +136,14 @@ public class CoreStats_Fragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                calculateModifier("con");
+                updateModifiers("con");
+                saveData("con");
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                CalculateAndDisplayModifiers();
-                SaveData();
+
             }
         });
 
@@ -152,13 +155,14 @@ public class CoreStats_Fragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                calculateModifier("int");
+                updateModifiers("int");
+                saveData("int");
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                CalculateAndDisplayModifiers();
-                SaveData();
+
             }
         });
 
@@ -170,13 +174,14 @@ public class CoreStats_Fragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                calculateModifier("wis");
+                updateModifiers("wis");
+                saveData("wis");
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                CalculateAndDisplayModifiers();
-                SaveData();
+
             }
         });
 
@@ -188,13 +193,14 @@ public class CoreStats_Fragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                calculateModifier("cha");
+                updateModifiers("cha");
+                saveData("cha");
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                CalculateAndDisplayModifiers();
-                SaveData();
+
             }
         });
 
@@ -206,13 +212,12 @@ public class CoreStats_Fragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                saveData("maxHP");
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                CalculateAndDisplayModifiers();
-                SaveData();
+
             }
         });
 
@@ -220,83 +225,99 @@ public class CoreStats_Fragment extends Fragment {
     }
 
 
-
-
-    public void CalculateAndDisplayModifiers() {
+    public void calculateModifier(String stat) {
 
         //First we'll take whatever data the user has in the EditText fields...
         //Then calculate the modifier
-        try {
-            strengthValue = Integer.parseInt(strengthValueET.getText().toString());
-        } catch (NumberFormatException nfe) {}
-        strengthMod = (strengthValue - 10) / 2;
+        switch (stat) {
+            case "str":
+                try {
+                    strengthValue = Integer.parseInt(strengthValueET.getText().toString());
+                } catch (NumberFormatException nfe) {
+                    }
+                strengthMod = (strengthValue - 10) / 2;
+                break;
+            case "dex":
+                try {
+                    dexterityValue = Integer.parseInt(dexterityValueET.getText().toString());
+                } catch (NumberFormatException nfe) {
+                    }
+                dexterityMod = (dexterityValue - 10) / 2;
+                break;
 
-        try {
-            dexterityValue = Integer.parseInt(dexterityValueET.getText().toString());
-        } catch (NumberFormatException nfe) {}
-        dexterityMod = (dexterityValue - 10) / 2;
+            case "con":
+                try {
+                    constitutionValue = Integer.parseInt(constitutionValueET.getText().toString());
+                 } catch (NumberFormatException nfe) {
+                    }
+                constitutionMod = (constitutionValue - 10) / 2;
+                break;
 
-        try {
-            constitutionValue = Integer.parseInt(constituationValueET.getText().toString());
-        } catch (NumberFormatException nfe) {}
-        constitutionMod = (constitutionValue - 10) / 2;
+            case "int":
+                try {
+                    intelligenceValue = Integer.parseInt(intelligenceValueET.getText().toString());
+                } catch (NumberFormatException nfe) {
+                    }
+                intelligenceMod = (intelligenceValue - 10) / 2;
+                break;
 
-        try {
-            intelligenceValue = Integer.parseInt(intelligenceValueET.getText().toString());
-        } catch (NumberFormatException nfe) {}
-        intelligenceMod = (intelligenceValue - 10) / 2;
+            case "wis":
+                try {
+                    wisdomValue = Integer.parseInt(wisdomValueET.getText().toString());
+                } catch (NumberFormatException nfe) {
+                    }
+                wisdomMod = (wisdomValue - 10) / 2;
+                break;
 
-        try {
-            wisdomValue = Integer.parseInt(wisdomValueET.getText().toString());
-        } catch (NumberFormatException nfe) {}
-        wisdomMod = (wisdomValue - 10) / 2;
+            case "cha":
+                try {
+                    charismaValue = Integer.parseInt(charismaValueET.getText().toString());
+                } catch (NumberFormatException nfe) {
+                    }
+                charismaMod = (charismaValue - 10) / 2;
+                break;
+        }
+    }
 
-        try {
-            charismaValue = Integer.parseInt(charismaValueET.getText().toString());
-        } catch (NumberFormatException nfe) {}
-        charismaMod = (charismaValue - 10) / 2;
+    private void displayModifiers() {
 
+        //On initial load, display the text
         //Now we'll display the modifier, along with whether it's positive or negative
-        if (strengthMod < 0) {
-            strengthModTV.setText("-" + String.valueOf(strengthMod));
-        }
-        else {
+
+        if (strengthMod > 0) {
             strengthModTV.setText("+" + String.valueOf(strengthMod));
+        } else {
+            strengthModTV.setText(String.valueOf(strengthMod));
         }
 
-        if (dexterityMod < 0) {
-            dexterityModTV.setText("-" + String.valueOf(dexterityMod));
-        }
-        else {
+        if (dexterityMod > 0) {
             dexterityModTV.setText("+" + String.valueOf(dexterityMod));
+        } else {
+            dexterityModTV.setText(String.valueOf(dexterityMod));
         }
 
-        if (constitutionMod < 0) {
-            constituationModTV.setText("-" + String.valueOf(constitutionMod));
-        }
-        else {
-            constituationModTV.setText("+" + String.valueOf(constitutionMod));
+        if (constitutionMod > 0) {
+            constitutionModTV.setText("+" + String.valueOf(constitutionMod));
+        } else {
+            constitutionModTV.setText(String.valueOf(constitutionMod));
         }
 
-        if (intelligenceMod < 0) {
-            intelligenceModTV.setText("-" + String.valueOf(intelligenceMod));
-        }
-        else {
+        if (intelligenceMod > 0) {
             intelligenceModTV.setText("+" + String.valueOf(intelligenceMod));
+        } else {
+            intelligenceModTV.setText(String.valueOf(intelligenceMod));
         }
 
-        if (wisdomMod < 0) {
-            wisdomModTV.setText("-" + String.valueOf(wisdomMod));
-        }
-        else {
+        if (wisdomMod > 0) {
             wisdomModTV.setText("+" + String.valueOf(wisdomMod));
+        } else {
+            wisdomModTV.setText(String.valueOf(wisdomMod));
         }
 
-        if (charismaMod < 0) {
-            charismaModTV.setText("-" + String.valueOf(charismaMod));
-        }
-        else {
+        if (charismaMod > 0) {
             charismaModTV.setText("+" + String.valueOf(charismaMod));
+        } else {
+            charismaModTV.setText(String.valueOf(charismaMod));
         }
 
         //Setting and displayed MaxHP, Initiative, and Passive Perception;
@@ -305,30 +326,103 @@ public class CoreStats_Fragment extends Fragment {
         maxHPET.setText(String.valueOf(maxHPValue));
 
         //Initiative values, which is dex mod
-        if (dexterityMod < 0) {
-            initiativeValue.setText("-" + String.valueOf(dexterityMod));
-        }
-        else {
-            initiativeValue.setText("+" + String.valueOf(dexterityMod));
+        if (dexterityMod > 0) {
+            initiativeTV.setText("+" + String.valueOf(dexterityMod));
+        } else {
+            initiativeTV.setText(String.valueOf(dexterityMod));
         }
 
         //Passive Perception, which is 10 + wisdom mod (no need for if statement, can't be negative)
-        passivePerceptionValue.setText(String.valueOf(wisdomMod) + 10);
-
+        passivePerceptionValue = wisdomMod + 10;
+        passivePerceptionTV.setText(String.valueOf(passivePerceptionValue));
 
     }
 
-    private void SaveData() {
-     /*   SharedPreferences sharedPreferences = getContext().getSharedPreferences("RuneGemwallSaveData", Context.MODE_PRIVATE);
+    private void updateModifiers(String stat) {
+        switch (stat) {
+            case "str":
+                if (strengthMod > 0) {
+                    strengthModTV.setText("+" + String.valueOf(strengthMod));
+                } else {
+                    strengthModTV.setText(String.valueOf(strengthMod));
+                }
+                break;
+            case "dex":
+                if (dexterityMod > 0) {
+                    dexterityModTV.setText("+" + String.valueOf(dexterityMod));
+                    initiativeTV.setText("+" + String.valueOf(dexterityMod));
+                } else {
+                    dexterityModTV.setText(String.valueOf(dexterityMod));
+                    initiativeTV.setText(String.valueOf(dexterityMod));
+                }
+
+                break;
+            case "con":
+                if (constitutionMod > 0) {
+                    constitutionModTV.setText("+" + String.valueOf(constitutionMod));
+                } else {
+                    constitutionModTV.setText(String.valueOf(constitutionMod));
+                }
+                break;
+            case "int":
+                if (intelligenceMod > 0) {
+                    intelligenceModTV.setText("+" + String.valueOf(intelligenceMod));
+                } else {
+                    intelligenceModTV.setText(String.valueOf(intelligenceMod));
+                }
+                break;
+            case "wis":
+                if (wisdomMod > 0) {
+                    wisdomModTV.setText("+" + String.valueOf(wisdomMod));
+                } else {
+                    wisdomModTV.setText(String.valueOf(wisdomMod));
+                }
+                passivePerceptionValue = wisdomMod + 10;
+                passivePerceptionTV.setText(String.valueOf(passivePerceptionValue));
+                break;
+            case "cha":
+                if (charismaMod > 0) {
+                    charismaModTV.setText("+" + String.valueOf(charismaMod));
+                } else {
+                    charismaModTV.setText(String.valueOf(charismaMod));
+                }
+                break;
+        }
+    }
+
+
+    private void saveData(String stat) {
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("RuneGemwallSaveData", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit(); //access the file
-        editor.putInt("StrengthValue", strengthValue);
-        editor.putInt("DexterityValue", dexterityValue);
-        editor.putInt("ConstitutionValue", constitutionValue);
-        editor.putInt("IntelligenceValue", intelligenceValue);
-        editor.putInt("WisdomValue", wisdomValue);
-        editor.putInt("CharismaValue", charismaValue);
-        editor.putInt("CharacterMaxHP", maxHPValue);
-       editor.apply();
-    */}
+
+        switch (stat) {
+            case "str":
+                editor.putInt("StrengthValue", strengthValue);
+                break;
+            case "dex":
+                editor.putInt("DexterityValue", dexterityValue);
+                break;
+            case "con":
+                editor.putInt("ConstitutionValue", constitutionValue);
+                break;
+            case "int":
+                editor.putInt("IntelligenceValue", intelligenceValue);
+                break;
+            case "wis":
+                editor.putInt("WisdomValue", wisdomValue);
+                break;
+            case "cha":
+                editor.putInt("CharismaValue", charismaValue);
+                break;
+            case "maxHP":
+                try {
+                    maxHPValue = Integer.parseInt(maxHPET.getText().toString());
+                } catch (NumberFormatException nfe) {
+                }
+                editor.putInt("CharacterMaxHP", maxHPValue);
+                break;
+        }
+        editor.apply();
+    }
 
 }

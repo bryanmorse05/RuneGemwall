@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -88,15 +89,6 @@ public class CoreStats_Fragment extends Fragment {
         CalculateAndDisplayModifiers();
 
 
-
-        //Need to add all the onClick listeners so the cursor shows up again, and create math
-        strengthValueET.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
         strengthValueET.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -111,7 +103,8 @@ public class CoreStats_Fragment extends Fragment {
             @Override
             public void afterTextChanged(Editable editable) {
                 CalculateAndDisplayModifiers();
-                SaveData();
+//                SaveData();
+                Log.d("Strength:", "afterTextChanged called");
             }
         });
 
@@ -326,7 +319,7 @@ public class CoreStats_Fragment extends Fragment {
     }
 
     private void SaveData() {
-        SharedPreferences sharedPreferences = getContext().getSharedPreferences("RuneGemwallSaveData", Context.MODE_PRIVATE);
+     /*   SharedPreferences sharedPreferences = getContext().getSharedPreferences("RuneGemwallSaveData", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit(); //access the file
         editor.putInt("StrengthValue", strengthValue);
         editor.putInt("DexterityValue", dexterityValue);
@@ -335,7 +328,7 @@ public class CoreStats_Fragment extends Fragment {
         editor.putInt("WisdomValue", wisdomValue);
         editor.putInt("CharismaValue", charismaValue);
         editor.putInt("CharacterMaxHP", maxHPValue);
-        editor.apply();
-    }
+       editor.apply();
+    */}
 
 }

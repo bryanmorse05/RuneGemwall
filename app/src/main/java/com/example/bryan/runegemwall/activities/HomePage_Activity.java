@@ -38,6 +38,7 @@ public class HomePage_Activity extends AppCompatActivity {
         editor.putInt("CharacterAC", 16);
         editor.putInt("CharacterSpeed", 40);
         editor.putInt("CharacterLevel", 1);
+        editor.putInt("CharacterExperience", 0);
         editor.apply();
 
         statsButton.setOnClickListener(new View.OnClickListener() {

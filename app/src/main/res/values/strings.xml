@@ -11,6 +11,7 @@
     <string name="ac">AC: </string>
     <string name="speed">SPD: </string>
     <string name="level">LVL: </string>
+    <string name="exp">EXP: </string>
     <string name="stats_tab1">Core</string>
     <string name="stats_tab2">Skills</string>
     <string name="stats_tab3">Saving</string>
@@ -25,6 +26,7 @@
     <string name="wisdom">Wisdom</string>
     <string name="charisma">Charisma</string>
     <string name="maxHP">Max HP</string>
+    <string name="proficiency">Proficiency</string>
     <string name="initiative">Initiative</string>
     <string name="passivePerception">Passive Perception</string>
 </resources>

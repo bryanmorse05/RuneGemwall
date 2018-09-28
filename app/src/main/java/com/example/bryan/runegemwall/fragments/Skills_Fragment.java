@@ -1,5 +1,7 @@
 package com.example.bryan.runegemwall.fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -26,6 +28,8 @@ public class Skills_Fragment extends Fragment {
     private RecyclerView recyclerView;
     private SkillsRecyclerAdapter mAdapter;
 
+    Integer strengthMod, dexterityMod, constitutionMod, intelligenceMod, wisdomMod, charismaMod;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +41,14 @@ public class Skills_Fragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_skills_, container, false);
+
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("RuneGemwallSaveData", Context.MODE_PRIVATE);
+        strengthMod = sharedPreferences.getInt("StrengthMod", 0);
+        dexterityMod = sharedPreferences.getInt("DexterityMod", 0);
+        constitutionMod = sharedPreferences.getInt("ConstitutionMod", 0);
+        intelligenceMod = sharedPreferences.getInt("IntelligenceMod", 0);
+        wisdomMod = sharedPreferences.getInt("WisdomMod", 0);
+        charismaMod = sharedPreferences.getInt("CharismaMod", 0);
 
         recyclerView = view.findViewById(R.id.skillsRecyclerView);
 
@@ -52,58 +64,58 @@ public class Skills_Fragment extends Fragment {
     }
 
     private void PopulateSkillData() {
-        SkillsModel skill = new SkillsModel("Acrobatics", "Dex", 0);
+        SkillsModel skill = new SkillsModel("Acrobatics", "Dex", dexterityMod);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Animal Handling", "Wis", 0);
+        skill = new SkillsModel("Animal Handling", "Wis", wisdomMod);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Arcana", "Int", 0);
+        skill = new SkillsModel("Arcana", "Int", intelligenceMod);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Athletics", "Str", 0);
+        skill = new SkillsModel("Athletics", "Str", strengthMod);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Deception", "Cha", 0);
+        skill = new SkillsModel("Deception", "Cha", charismaMod);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("History", "Int", 0);
+        skill = new SkillsModel("History", "Int", intelligenceMod);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Insight", "Wis", 0);
+        skill = new SkillsModel("Insight", "Wis", wisdomMod);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Intimidation", "Cha", 0);
+        skill = new SkillsModel("Intimidation", "Cha", charismaMod);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Investigation", "Int", 0);
+        skill = new SkillsModel("Investigation", "Int", intelligenceMod);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Medicine", "Wis", 0);
+        skill = new SkillsModel("Medicine", "Wis", wisdomMod);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Nature", "Int", 0);
+        skill = new SkillsModel("Nature", "Int", intelligenceMod);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Perception", "Wis", 0);
+        skill = new SkillsModel("Perception", "Wis", wisdomMod);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Performance", "Cha", 0);
+        skill = new SkillsModel("Performance", "Cha", charismaMod);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Persuasion", "Cha", 0);
+        skill = new SkillsModel("Persuasion", "Cha", charismaMod);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Religion", "Int", 0);
+        skill = new SkillsModel("Religion", "Int", intelligenceMod);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Sleight of Hand", "Dex", 0);
+        skill = new SkillsModel("Sleight of Hand", "Dex", dexterityMod);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Stealth", "Dex", 0);
+        skill = new SkillsModel("Stealth", "Dex", dexterityMod);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Survival", "Wis", 0);
+        skill = new SkillsModel("Survival", "Wis", wisdomMod);
         skillsModelList.add(skill);
 
         mAdapter.notifyDataSetChanged();

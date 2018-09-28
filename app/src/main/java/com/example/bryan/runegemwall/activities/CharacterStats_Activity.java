@@ -28,9 +28,9 @@ public class CharacterStats_Activity extends AppCompatActivity {
     ConstraintLayout statsConstraintLayout;     //THE BIG ONE  The entire activity layout
     ConstraintLayout statsLayout;               //The layout view to be replaced
     TabLayout tabLayout;
-    EditText currentHitPointsET, currentArmorClassET, currentCharacterSpeedET, currentCharacterLevelET;
-    TextView hitPointsText;                     //Only need to set the focus on it instead of the EditText fields
-    Integer hitPointsValue, armorClassValue, characterSpeedValue, characterLevelValue;
+    EditText currentHitPointsET, currentArmorClassET, currentCharacterSpeedET, currentCharacterLevelET, currentCharacterExperienceET;
+    TextView hitPointsText;                     //Only needed to set the focus on it instead of the EditText fields
+    Integer hitPointsValue, armorClassValue, characterSpeedValue, characterLevelValue, characterExperienceValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +44,7 @@ public class CharacterStats_Activity extends AppCompatActivity {
         currentArmorClassET = findViewById(R.id.currentArmorClass);
         currentCharacterSpeedET = findViewById(R.id.currentCharacterSpeed);
         currentCharacterLevelET = findViewById(R.id.currentCharacterLevel);
+        currentCharacterExperienceET = findViewById(R.id.currentCharacterExperience);
         hitPointsText = findViewById(R.id.hitPointsText);
 
         //Back button enabled
@@ -61,12 +62,14 @@ public class CharacterStats_Activity extends AppCompatActivity {
         armorClassValue = sharedPreferences.getInt("CharacterAC", 0);
         characterSpeedValue = sharedPreferences.getInt("CharacterSpeed", 0);
         characterLevelValue = sharedPreferences.getInt("CharacterLevel", 0);
+        characterExperienceValue = sharedPreferences.getInt("CharacterExperience", 0);
 
         //Populate the corresponding EditText fields
         currentHitPointsET.setText(String.valueOf(hitPointsValue));
         currentArmorClassET.setText(String.valueOf(armorClassValue));
         currentCharacterSpeedET.setText(String.valueOf(characterSpeedValue));
         currentCharacterLevelET.setText(String.valueOf(characterLevelValue));
+        currentCharacterExperienceET.setText(String.valueOf(characterExperienceValue));
 
 
 
@@ -99,6 +102,13 @@ public class CharacterStats_Activity extends AppCompatActivity {
             }
         });
 
+        currentCharacterExperienceET.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentCharacterExperienceET.setCursorVisible(true);
+            }
+        });
+
         //Call this whenever the user touches outside of the keyboard and the EditText fields,
         //hiding the keyboard and making the cursors invisible again
         statsConstraintLayout.setOnClickListener(new View.OnClickListener() {
@@ -108,6 +118,7 @@ public class CharacterStats_Activity extends AppCompatActivity {
                 currentArmorClassET.setCursorVisible(false);
                 currentCharacterSpeedET.setCursorVisible(false);
                 currentCharacterLevelET.setCursorVisible(false);
+                currentCharacterExperienceET.setCursorVisible(false);
 
                 //I only need this so the focus is on something else other than the editText fields
                 hitPointsText.setFocusableInTouchMode(true);

@@ -33,8 +33,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/statsTabLayout"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/currentArmorClass"
-        android:text="0"/>
+        app:layout_constraintRight_toLeftOf="@id/currentArmorClass" />
 
     <TextView
         android:id="@+id/armorClassText"
@@ -43,7 +42,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toLeftOf="@id/currentArmorClass"
         app:layout_constraintBottom_toTopOf="@id/statsTabLayout"
-        android:layout_marginRight="5dp"
+        android:layout_marginRight="1dp"
         android:text="@string/ac" />
 
     <EditText
@@ -60,8 +59,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@id/currentHitPoints"
         app:layout_constraintBottom_toTopOf="@id/statsTabLayout"
-        app:layout_constraintRight_toLeftOf="@id/currentCharacterSpeed"
-        android:text="1"/>
+        app:layout_constraintRight_toLeftOf="@id/currentCharacterSpeed" />
 
     <TextView
         android:id="@+id/characterSpeedText"
@@ -70,7 +68,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toLeftOf="@id/currentCharacterSpeed"
         app:layout_constraintBottom_toTopOf="@id/statsTabLayout"
-        android:layout_marginRight="5dp"
+        android:layout_marginRight="1dp"
         android:text="@string/speed" />
 
     <EditText
@@ -87,8 +85,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@id/currentArmorClass"
         app:layout_constraintRight_toRightOf="@id/currentCharacterLevel"
-        app:layout_constraintBottom_toTopOf="@id/statsTabLayout"
-        android:text="2"/>
+        app:layout_constraintBottom_toTopOf="@id/statsTabLayout" />
 
     <TextView
         android:id="@+id/characterLevelText"
@@ -97,7 +94,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toLeftOf="@id/currentCharacterLevel"
         app:layout_constraintBottom_toTopOf="@id/statsTabLayout"
-        android:layout_marginRight="5dp"
+        android:layout_marginRight="1dp"
         android:text="@string/level" />
 
     <EditText
@@ -113,6 +110,32 @@
         android:theme="@style/MyCustomEditTextTheme"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@id/currentCharacterSpeed"
+        app:layout_constraintRight_toRightOf="@id/currentCharacterExperience"
+        app:layout_constraintBottom_toTopOf="@id/statsTabLayout" />
+
+    <TextView
+        android:id="@+id/characterExperienceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/currentCharacterExperience"
+        app:layout_constraintBottom_toTopOf="@id/statsTabLayout"
+        android:layout_marginRight="1dp"
+        android:text="@string/exp" />
+
+    <EditText
+        android:id="@+id/currentCharacterExperience"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:maxLength="5"
+        android:cursorVisible="false"
+        android:imeOptions="actionDone"
+        android:theme="@style/MyCustomEditTextTheme"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/currentCharacterLevel"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@id/statsTabLayout" />
 

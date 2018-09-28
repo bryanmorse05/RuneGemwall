@@ -17,12 +17,12 @@ import com.example.bryan.runegemwall.R;
 public class CoreStats_Fragment extends Fragment {
 
     EditText strengthValueET, dexterityValueET, constitutionValueET, intelligenceValueET, wisdomValueET, charismaValueET;
-    EditText maxHPET;
+    EditText maxHPET, proficiencyET;
     TextView strengthModTV, dexterityModTV, constitutionModTV, intelligenceModTV, wisdomModTV, charismaModTV;
     TextView initiativeTV, passivePerceptionTV;
     Integer strengthValue, dexterityValue, constitutionValue, intelligenceValue, wisdomValue, charismaValue;
     Integer strengthMod, dexterityMod, constitutionMod, intelligenceMod, wisdomMod, charismaMod;
-    Integer maxHPValue, passivePerceptionValue;
+    Integer maxHPValue, proficiencyValue, passivePerceptionValue;
 
     public CoreStats_Fragment() {
         // Required empty public constructor
@@ -50,6 +50,7 @@ public class CoreStats_Fragment extends Fragment {
         wisdomValue = sharedPreferences.getInt("WisdomValue", 0);
         charismaValue = sharedPreferences.getInt("CharismaValue", 0);
         maxHPValue = sharedPreferences.getInt("CharacterMaxHP", 0);
+        proficiencyValue = sharedPreferences.getInt("CharacterProficiency", 0);
 
         //Attaching the widgets
         strengthModTV = view.findViewById(R.id.strengthModifier);
@@ -69,6 +70,7 @@ public class CoreStats_Fragment extends Fragment {
         initiativeTV = view.findViewById(R.id.initiativeValue);
         passivePerceptionTV = view.findViewById(R.id.passivePerceptionValue);
         maxHPET = view.findViewById(R.id.maxHPValue);
+        proficiencyET = view.findViewById(R.id.proficiencyValue);
 
         //Fill in the stats
         strengthValueET.setText(String.valueOf(strengthValue));
@@ -78,6 +80,7 @@ public class CoreStats_Fragment extends Fragment {
         wisdomValueET.setText(String.valueOf(wisdomValue));
         charismaValueET.setText(String.valueOf(charismaValue));
         maxHPET.setText(String.valueOf(maxHPValue));
+        proficiencyET.setText(String.valueOf(proficiencyValue));
 
 
         //Calculation and displaying the mod values are handled here:
@@ -221,11 +224,29 @@ public class CoreStats_Fragment extends Fragment {
             }
         });
 
+        proficiencyET.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                saveData("pro");
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
         return view;
     }
 
 
     public void calculateModifier(String stat) {
+
 
         //First we'll take whatever data the user has in the EditText fields...
         //Then calculate the modifier
@@ -324,6 +345,7 @@ public class CoreStats_Fragment extends Fragment {
 
         //Display MaxHP
         maxHPET.setText(String.valueOf(maxHPValue));
+        proficiencyET.setText(String.valueOf(proficiencyValue));
 
         //Initiative values, which is dex mod
         if (dexterityMod > 0) {
@@ -398,21 +420,27 @@ public class CoreStats_Fragment extends Fragment {
         switch (stat) {
             case "str":
                 editor.putInt("StrengthValue", strengthValue);
+                editor.putInt("StrengthMod", strengthMod);
                 break;
             case "dex":
                 editor.putInt("DexterityValue", dexterityValue);
+                editor.putInt("DexterityMod", dexterityMod);
                 break;
             case "con":
                 editor.putInt("ConstitutionValue", constitutionValue);
+                editor.putInt("ConstitutionMod", constitutionMod);
                 break;
             case "int":
                 editor.putInt("IntelligenceValue", intelligenceValue);
+                editor.putInt("IntelligenceMod", intelligenceMod);
                 break;
             case "wis":
                 editor.putInt("WisdomValue", wisdomValue);
+                editor.putInt("WisdomMod", wisdomMod);
                 break;
             case "cha":
                 editor.putInt("CharismaValue", charismaValue);
+                editor.putInt("CharismaMod", charismaMod);
                 break;
             case "maxHP":
                 try {
@@ -420,6 +448,13 @@ public class CoreStats_Fragment extends Fragment {
                 } catch (NumberFormatException nfe) {
                 }
                 editor.putInt("CharacterMaxHP", maxHPValue);
+                break;
+            case "pro":
+                try {
+                    proficiencyValue = Integer.parseInt(proficiencyET.getText().toString());
+                } catch (NumberFormatException nfe) {
+                }
+                editor.putInt("CharacterProficiency", proficiencyValue);
                 break;
         }
         editor.apply();

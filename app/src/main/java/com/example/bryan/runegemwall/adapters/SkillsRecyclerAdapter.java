@@ -45,7 +45,7 @@ public class SkillsRecyclerAdapter extends RecyclerView.Adapter<SkillsRecyclerAd
 
         SkillsModel skillsModel = skillsModelList.get(position);
         holder.skillName.setText(skillsModel.getSkillName());
-        holder.skillType.setText(skillsModel.getSkillType());
+        holder.skillType.setText("(" + skillsModel.getSkillType() + ")");
         holder.skillValue.setText(String.valueOf(skillsModel.getSkillValue()));
 
     }

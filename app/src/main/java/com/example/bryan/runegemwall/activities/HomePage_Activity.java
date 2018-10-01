@@ -26,14 +26,15 @@ public class HomePage_Activity extends AppCompatActivity {
         glossaryButton = findViewById(R.id.glossaryButton);
 
         //Implementing to test save functionality, will remove later
+        /*
         SharedPreferences sharedPreferences = getSharedPreferences("RuneGemwallSaveData", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit(); //access the file
-//        editor.putInt("StrengthValue", 14);
-//        editor.putInt("DexterityValue", 17);
-//        editor.putInt("ConstitutionValue", 14);
-//        editor.putInt("IntelligenceValue", 14);
-//        editor.putInt("WisdomValue", 17);
-//        editor.putInt("CharismaValue", 16);
+        editor.putInt("StrengthValue", 14);
+        editor.putInt("DexterityValue", 17);
+        editor.putInt("ConstitutionValue", 14);
+        editor.putInt("IntelligenceValue", 14);
+        editor.putInt("WisdomValue", 17);
+        editor.putInt("CharismaValue", 16);
         editor.putInt("CharacterHP", 10);
         editor.putInt("CharacterAC", 16);
         editor.putInt("CharacterSpeed", 40);
@@ -41,6 +42,7 @@ public class HomePage_Activity extends AppCompatActivity {
         editor.putInt("CharacterExperience", 0);
         editor.apply();
 
+*/
         statsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

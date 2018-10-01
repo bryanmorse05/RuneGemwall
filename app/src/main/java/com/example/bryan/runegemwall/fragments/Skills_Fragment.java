@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 
 import com.example.bryan.runegemwall.R;
 import com.example.bryan.runegemwall.adapters.SkillsRecyclerAdapter;
@@ -29,6 +31,10 @@ public class Skills_Fragment extends Fragment {
     private SkillsRecyclerAdapter mAdapter;
 
     Integer strengthMod, dexterityMod, constitutionMod, intelligenceMod, wisdomMod, charismaMod;
+    Boolean acrobaticsChecked, animalHandlingChecked, arcanaChecked, athleticsChecked, deceptionChecked,
+            historyChecked, insightChecked, intimidationChecked, investigationChecked, medicineChecked,
+            natureChecked, perceptionChecked, performanceChecked, persuasionChecked, religionChecked,
+            sleightOfHandChecked, stealthChecked, survivalCHecked;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,72 +56,92 @@ public class Skills_Fragment extends Fragment {
         wisdomMod = sharedPreferences.getInt("WisdomMod", 0);
         charismaMod = sharedPreferences.getInt("CharismaMod", 0);
 
+        acrobaticsChecked = sharedPreferences.getBoolean("Acrobatics", false);
+        animalHandlingChecked = sharedPreferences.getBoolean("Animal Handling", false);
+        arcanaChecked = sharedPreferences.getBoolean("Arcana", false);
+        athleticsChecked = sharedPreferences.getBoolean("Athletics", false);
+        deceptionChecked = sharedPreferences.getBoolean("Deception", false);
+        historyChecked = sharedPreferences.getBoolean("History", false);
+        insightChecked = sharedPreferences.getBoolean("Insight", false);
+        intimidationChecked = sharedPreferences.getBoolean("Intimidation", false);
+        investigationChecked = sharedPreferences.getBoolean("Investigation", false);
+        medicineChecked = sharedPreferences.getBoolean("Medicine", false);
+        natureChecked = sharedPreferences.getBoolean("Nature", false);
+        perceptionChecked = sharedPreferences.getBoolean("Perception", false);
+        performanceChecked = sharedPreferences.getBoolean("Performance", false);
+        persuasionChecked = sharedPreferences.getBoolean("Persuasion", false);
+        religionChecked = sharedPreferences.getBoolean("Religion", false);
+        sleightOfHandChecked = sharedPreferences.getBoolean("Sleight Of Hand", false);
+        stealthChecked = sharedPreferences.getBoolean("Stealth", false);
+        survivalCHecked = sharedPreferences.getBoolean("Survival", false);
+
+
         recyclerView = view.findViewById(R.id.skillsRecyclerView);
 
         mAdapter = new SkillsRecyclerAdapter(skillsModelList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(mAdapter);
-
         PopulateSkillData();
 
         // Inflate the layout for this fragment
+
         return view;
     }
 
     private void PopulateSkillData() {
-        SkillsModel skill = new SkillsModel("Acrobatics", "Dex", dexterityMod);
+        SkillsModel skill = new SkillsModel("Acrobatics", "Dex", dexterityMod, acrobaticsChecked);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Animal Handling", "Wis", wisdomMod);
+        skill = new SkillsModel("Animal Handling", "Wis", wisdomMod, animalHandlingChecked);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Arcana", "Int", intelligenceMod);
+        skill = new SkillsModel("Arcana", "Int", intelligenceMod, arcanaChecked);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Athletics", "Str", strengthMod);
+        skill = new SkillsModel("Athletics", "Str", strengthMod, athleticsChecked);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Deception", "Cha", charismaMod);
+        skill = new SkillsModel("Deception", "Cha", charismaMod, deceptionChecked);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("History", "Int", intelligenceMod);
+        skill = new SkillsModel("History", "Int", intelligenceMod, historyChecked);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Insight", "Wis", wisdomMod);
+        skill = new SkillsModel("Insight", "Wis", wisdomMod, insightChecked);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Intimidation", "Cha", charismaMod);
+        skill = new SkillsModel("Intimidation", "Cha", charismaMod, intimidationChecked);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Investigation", "Int", intelligenceMod);
+        skill = new SkillsModel("Investigation", "Int", intelligenceMod, investigationChecked);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Medicine", "Wis", wisdomMod);
+        skill = new SkillsModel("Medicine", "Wis", wisdomMod, medicineChecked);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Nature", "Int", intelligenceMod);
+        skill = new SkillsModel("Nature", "Int", intelligenceMod, natureChecked);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Perception", "Wis", wisdomMod);
+        skill = new SkillsModel("Perception", "Wis", wisdomMod, perceptionChecked);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Performance", "Cha", charismaMod);
+        skill = new SkillsModel("Performance", "Cha", charismaMod, performanceChecked);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Persuasion", "Cha", charismaMod);
+        skill = new SkillsModel("Persuasion", "Cha", charismaMod, persuasionChecked);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Religion", "Int", intelligenceMod);
+        skill = new SkillsModel("Religion", "Int", intelligenceMod, religionChecked);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Sleight of Hand", "Dex", dexterityMod);
+        skill = new SkillsModel("Sleight of Hand", "Dex", dexterityMod, sleightOfHandChecked);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Stealth", "Dex", dexterityMod);
+        skill = new SkillsModel("Stealth", "Dex", dexterityMod, stealthChecked);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Survival", "Wis", wisdomMod);
+        skill = new SkillsModel("Survival", "Wis", wisdomMod, survivalCHecked);
         skillsModelList.add(skill);
 
         mAdapter.notifyDataSetChanged();

@@ -5,6 +5,7 @@ public class SkillsModel {
     String skillName;
     String skillType;
     Integer skillValue;
+    boolean skillChecked;
 
     public String getSkillName() {
         return skillName;
@@ -30,10 +31,15 @@ public class SkillsModel {
         this.skillValue = skillValue;
     }
 
-    public SkillsModel(String name, String type, Integer value) {
+    public boolean getSkillChecked() { return skillChecked; }
+
+    public void setSkillChecked(boolean skillChecked) { this.skillChecked = skillChecked; }
+
+    public SkillsModel(String name, String type, Integer value, boolean checked) {
         this.skillName = name;
         this.skillType = type;
         this.skillValue = value;
+        this.skillChecked = checked;
     }
 
 }

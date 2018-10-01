@@ -5,8 +5,8 @@
     android:layout_height="75dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <RadioButton
-        android:id="@+id/skillButton"
+    <CheckBox
+        android:id="@+id/skillCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -18,9 +18,9 @@
         android:id="@+id/skillName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/skillButton"
-        app:layout_constraintBottom_toBottomOf="@id/skillButton"
-        app:layout_constraintLeft_toRightOf="@id/skillButton"
+        app:layout_constraintTop_toTopOf="@id/skillCheckBox"
+        app:layout_constraintBottom_toBottomOf="@id/skillCheckBox"
+        app:layout_constraintLeft_toRightOf="@id/skillCheckBox"
         android:layout_marginLeft="40dp"
         android:text="Name"/>
 
@@ -28,8 +28,8 @@
         android:id="@+id/skillType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/skillButton"
-        app:layout_constraintBottom_toBottomOf="@id/skillButton"
+        app:layout_constraintTop_toTopOf="@id/skillCheckBox"
+        app:layout_constraintBottom_toBottomOf="@id/skillCheckBox"
         app:layout_constraintLeft_toRightOf="@id/skillName"
         android:layout_marginLeft="8dp"
         android:text="Type"/>
@@ -38,8 +38,8 @@
         android:id="@+id/skillValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/skillButton"
-        app:layout_constraintBottom_toBottomOf="@id/skillButton"
+        app:layout_constraintTop_toTopOf="@id/skillCheckBox"
+        app:layout_constraintBottom_toBottomOf="@id/skillCheckBox"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="60dp" />
 

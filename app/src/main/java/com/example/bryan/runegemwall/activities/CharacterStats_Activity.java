@@ -11,6 +11,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -37,15 +39,16 @@ public class CharacterStats_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_stats_);
 
-        statsConstraintLayout = findViewById(R.id.statsConstraintLayout);
-        statsLayout = findViewById(R.id.statsLayout);
-        tabLayout = findViewById(R.id.statsTabLayout);
+        //Setting all the layouts
+        statsConstraintLayout = findViewById(R.id.statsConstraintLayout);                           //Need this for when user taps on screen to dismiss keyboard
+        statsLayout = findViewById(R.id.statsLayout);                                               //The layout underneath the tabLayout
+        tabLayout = findViewById(R.id.statsTabLayout);                                              //5 tabs
         currentHitPointsET = findViewById(R.id.currentHitPoints);
         currentArmorClassET = findViewById(R.id.currentArmorClass);
         currentCharacterSpeedET = findViewById(R.id.currentCharacterSpeed);
         currentCharacterLevelET = findViewById(R.id.currentCharacterLevel);
         currentCharacterExperienceET = findViewById(R.id.currentCharacterExperience);
-        hitPointsText = findViewById(R.id.hitPointsText);
+        hitPointsText = findViewById(R.id.hitPointsText);                                           //Need this only to switch focus after user taps on screen to dismiss keyboard
 
         //Back button enabled
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -57,7 +60,7 @@ public class CharacterStats_Activity extends AppCompatActivity {
 
         //Load the values for HP, AC, SPD, and LVL
         SharedPreferences sharedPreferences = getSharedPreferences("RuneGemwallSaveData", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit(); //write to the file
+        final SharedPreferences.Editor editor = sharedPreferences.edit(); //write to the file
         hitPointsValue = sharedPreferences.getInt("CharacterHP", 0);
         armorClassValue = sharedPreferences.getInt("CharacterAC", 0);
         characterSpeedValue = sharedPreferences.getInt("CharacterSpeed", 0);
@@ -73,41 +76,118 @@ public class CharacterStats_Activity extends AppCompatActivity {
 
 
 
-        //When the fields are touched is when the cursor appears.  It appears always on by default
-        currentHitPointsET.setOnClickListener(new View.OnClickListener() {
+        //Touching the HP field
+        currentHitPointsET.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View view) {
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 currentHitPointsET.setCursorVisible(true);
             }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                try {
+                    hitPointsValue = Integer.parseInt(currentHitPointsET.getText().toString());
+                } catch (NumberFormatException nfe) {
+                }
+                editor.putInt("CharacterHP", hitPointsValue);
+                editor.apply();
+            }
         });
 
-        currentArmorClassET.setOnClickListener(new View.OnClickListener() {
+        //Touching the AC field
+        currentArmorClassET.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View view) {
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 currentArmorClassET.setCursorVisible(true);
             }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                try {
+                    armorClassValue = Integer.parseInt(currentArmorClassET.getText().toString());
+                } catch (NumberFormatException nfe) {
+                }
+                editor.putInt("CharacterAC", armorClassValue);
+                editor.apply();
+            }
         });
 
-        currentCharacterSpeedET.setOnClickListener(new View.OnClickListener() {
+        //Touching the speed field
+        currentCharacterSpeedET.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View view) {
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 currentCharacterSpeedET.setCursorVisible(true);
             }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                try {
+                    characterSpeedValue = Integer.parseInt(currentCharacterSpeedET.getText().toString());
+                } catch (NumberFormatException nfe) {
+                }
+                editor.putInt("CharacterSpeed", characterSpeedValue);
+            }
         });
 
-        currentCharacterLevelET.setOnClickListener(new View.OnClickListener() {
+        currentCharacterLevelET.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View view) {
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 currentCharacterLevelET.setCursorVisible(true);
             }
-        });
 
-        currentCharacterExperienceET.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                currentCharacterExperienceET.setCursorVisible(true);
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                try {
+                    characterLevelValue = Integer.parseInt(currentCharacterLevelET.getText().toString());
+                } catch (NumberFormatException nfe) {
+                }
+                editor.putInt("CharacterLevel", characterLevelValue);
             }
         });
+
+        currentCharacterExperienceET.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                currentCharacterExperienceET.setCursorVisible(true);
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                try {
+                    characterExperienceValue = Integer.parseInt(currentCharacterExperienceET.getText().toString());
+                } catch (NumberFormatException nfe) {
+                }
+                editor.putInt("CharacterExperience", characterExperienceValue);
+                editor.apply();
+            }
+        });
+
+
 
         //Call this whenever the user touches outside of the keyboard and the EditText fields,
         //hiding the keyboard and making the cursors invisible again

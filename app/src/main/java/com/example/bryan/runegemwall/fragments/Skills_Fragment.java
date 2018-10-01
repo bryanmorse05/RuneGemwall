@@ -9,8 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 
 import com.example.bryan.runegemwall.R;
 import com.example.bryan.runegemwall.adapters.SkillsRecyclerAdapter;
@@ -18,7 +16,6 @@ import com.example.bryan.runegemwall.models.SkillsModel;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.Inflater;
 
 public class Skills_Fragment extends Fragment {
 
@@ -34,7 +31,7 @@ public class Skills_Fragment extends Fragment {
     Boolean acrobaticsChecked, animalHandlingChecked, arcanaChecked, athleticsChecked, deceptionChecked,
             historyChecked, insightChecked, intimidationChecked, investigationChecked, medicineChecked,
             natureChecked, perceptionChecked, performanceChecked, persuasionChecked, religionChecked,
-            sleightOfHandChecked, stealthChecked, survivalCHecked;
+            sleightOfHandChecked, stealthChecked, survivalChecked;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,7 +70,7 @@ public class Skills_Fragment extends Fragment {
         religionChecked = sharedPreferences.getBoolean("Religion", false);
         sleightOfHandChecked = sharedPreferences.getBoolean("Sleight Of Hand", false);
         stealthChecked = sharedPreferences.getBoolean("Stealth", false);
-        survivalCHecked = sharedPreferences.getBoolean("Survival", false);
+        survivalChecked = sharedPreferences.getBoolean("Survival", false);
 
 
         recyclerView = view.findViewById(R.id.skillsRecyclerView);
@@ -141,7 +138,7 @@ public class Skills_Fragment extends Fragment {
         skill = new SkillsModel("Stealth", "Dex", dexterityMod, stealthChecked);
         skillsModelList.add(skill);
 
-        skill = new SkillsModel("Survival", "Wis", wisdomMod, survivalCHecked);
+        skill = new SkillsModel("Survival", "Wis", wisdomMod, survivalChecked);
         skillsModelList.add(skill);
 
         mAdapter.notifyDataSetChanged();

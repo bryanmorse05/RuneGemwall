@@ -18,7 +18,7 @@
     <string name="stats_tab4">Equip</string>
     <string name="stats_tab5">Traits</string>
 
-    <!-- Core Stats Fragment -->
+    <!-- Core Stats and Saving Throws Fragment -->
     <string name="strength">Strength</string>
     <string name="dexterity">Dexterity</string>
     <string name="constitution">Constitution</string>
@@ -29,4 +29,9 @@
     <string name="proficiency">Proficiency</string>
     <string name="initiative">Initiative</string>
     <string name="passivePerception">Passive Perception</string>
+
+    <string name="death_saves">Death Saves</string>
+    <string name="successes">Successes</string>
+    <string name="failures">Failures</string>
+
 </resources>

@@ -1,13 +1,275 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="100dp"
     tools:context=".fragments.SavingThrows_Fragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/stats_tab3" />
+    <!-- Strength Row -->
+    <CheckBox
+        android:id="@+id/strengthSavingThrowCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/strengthSavingThrowText"
+        app:layout_constraintBottom_toBottomOf="@id/strengthSavingThrowText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/strengthSavingThrowText"/>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/strengthSavingThrowText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/dexteritySavingThrowText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/strength" />
+
+    <TextView
+        android:id="@+id/strengthSavingThrowValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/strengthSavingThrowText"
+        app:layout_constraintBottom_toBottomOf="@id/strengthSavingThrowText"
+        app:layout_constraintLeft_toRightOf="@id/strengthSavingThrowText"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <!-- Dexterity Row -->
+    <CheckBox
+        android:id="@+id/dexteritySavingThrowCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/dexteritySavingThrowText"
+        app:layout_constraintBottom_toBottomOf="@id/dexteritySavingThrowText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/dexteritySavingThrowText"/>
+
+    <TextView
+        android:id="@+id/dexteritySavingThrowText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/strengthSavingThrowText"
+        app:layout_constraintBottom_toTopOf="@id/constitutionSavingThrowText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/dexterity" />
+
+    <TextView
+        android:id="@+id/dexteritySavingThrowValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/dexteritySavingThrowText"
+        app:layout_constraintBottom_toBottomOf="@id/dexteritySavingThrowText"
+        app:layout_constraintLeft_toRightOf="@id/dexteritySavingThrowText"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <!-- Constitution Row -->
+    <CheckBox
+        android:id="@+id/constitutionSavingThrowCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/constitutionSavingThrowText"
+        app:layout_constraintBottom_toBottomOf="@id/constitutionSavingThrowText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/constitutionSavingThrowText"/>
+
+    <TextView
+        android:id="@+id/constitutionSavingThrowText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/dexteritySavingThrowText"
+        app:layout_constraintBottom_toTopOf="@id/intelligenceSavingThrowText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/constitution" />
+
+    <TextView
+        android:id="@+id/constitutionSavingThrowValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/constitutionSavingThrowText"
+        app:layout_constraintBottom_toBottomOf="@id/constitutionSavingThrowText"
+        app:layout_constraintLeft_toRightOf="@id/constitutionSavingThrowText"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <!-- Intelligence Row -->
+    <CheckBox
+        android:id="@+id/intelligenceSavingThrowCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/intelligenceSavingThrowText"
+        app:layout_constraintBottom_toBottomOf="@id/intelligenceSavingThrowText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/intelligenceSavingThrowText"/>
+
+    <TextView
+        android:id="@+id/intelligenceSavingThrowText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/constitutionSavingThrowText"
+        app:layout_constraintBottom_toTopOf="@id/wisdomSavingThrowText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/intelligence" />
+
+    <TextView
+        android:id="@+id/intelligenceSavingThrowValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/intelligenceSavingThrowText"
+        app:layout_constraintBottom_toBottomOf="@id/intelligenceSavingThrowText"
+        app:layout_constraintLeft_toRightOf="@id/intelligenceSavingThrowText"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <!-- Wisdom Row -->
+    <CheckBox
+        android:id="@+id/wisdomSavingThrowCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/wisdomSavingThrowText"
+        app:layout_constraintBottom_toBottomOf="@id/wisdomSavingThrowText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/wisdomSavingThrowText"/>
+
+    <TextView
+        android:id="@+id/wisdomSavingThrowText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/intelligenceSavingThrowText"
+        app:layout_constraintBottom_toTopOf="@id/charismaSavingThrowText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/wisdom" />
+
+    <TextView
+        android:id="@+id/wisdomSavingThrowValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/wisdomSavingThrowText"
+        app:layout_constraintBottom_toBottomOf="@id/wisdomSavingThrowText"
+        app:layout_constraintLeft_toRightOf="@id/wisdomSavingThrowText"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <!-- Charisma Row -->
+    <CheckBox
+        android:id="@+id/charismaSavingThrowCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/charismaSavingThrowText"
+        app:layout_constraintBottom_toBottomOf="@id/charismaSavingThrowText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/charismaSavingThrowText"/>
+
+    <TextView
+        android:id="@+id/charismaSavingThrowText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/wisdomSavingThrowText"
+        app:layout_constraintBottom_toTopOf="@id/deathSavesText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/charisma" />
+
+    <TextView
+        android:id="@+id/charismaSavingThrowValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/charismaSavingThrowText"
+        app:layout_constraintBottom_toBottomOf="@id/charismaSavingThrowText"
+        app:layout_constraintLeft_toRightOf="@id/charismaSavingThrowText"
+        app:layout_constraintRight_toRightOf="parent"/>
+    
+    
+    <!-- Death Saves -->
+    <TextView
+        android:id="@+id/deathSavesText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/death_saves"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/charismaSavingThrowText"
+        app:layout_constraintBottom_toTopOf="@id/deathSavesSuccessesText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+    
+    <!-- Successes -->
+    <TextView
+        android:id="@+id/deathSavesSuccessesText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:text="@string/successes"
+        app:layout_constraintTop_toBottomOf="@id/deathSavesText"
+        app:layout_constraintBottom_toTopOf="@id/deathSavesFailuresText"
+        app:layout_constraintLeft_toLeftOf="parent" 
+        app:layout_constraintRight_toLeftOf="@id/deathSavesSuccessBox1"/>
+    
+    <CheckBox
+        android:id="@+id/deathSavesSuccessBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        app:layout_constraintTop_toTopOf="@id/deathSavesSuccessesText"
+        app:layout_constraintBottom_toBottomOf="@id/deathSavesSuccessesText"
+        app:layout_constraintLeft_toRightOf="@id/deathSavesSuccessesText"
+        app:layout_constraintRight_toLeftOf="@id/deathSavesSuccessBox2"/>
+    
+    <CheckBox
+        android:id="@+id/deathSavesSuccessBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        app:layout_constraintTop_toTopOf="@id/deathSavesSuccessesText"
+        app:layout_constraintBottom_toBottomOf="@id/deathSavesSuccessesText"
+        app:layout_constraintLeft_toRightOf="@id/deathSavesSuccessBox1"
+        app:layout_constraintRight_toLeftOf="@id/deathSavesSuccessBox3"/>
+    
+    <CheckBox
+        android:id="@+id/deathSavesSuccessBox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        app:layout_constraintTop_toTopOf="@id/deathSavesSuccessesText"
+        app:layout_constraintBottom_toBottomOf="@id/deathSavesSuccessesText"
+        app:layout_constraintLeft_toRightOf="@id/deathSavesSuccessBox2"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <!-- Failures -->
+    <TextView
+        android:id="@+id/deathSavesFailuresText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/failures"
+        app:layout_constraintTop_toBottomOf="@id/deathSavesText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/deathSavesFailureBox1"/>
+
+    <CheckBox
+        android:id="@+id/deathSavesFailureBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/deathSavesFailuresText"
+        app:layout_constraintBottom_toBottomOf="@id/deathSavesFailuresText"
+        app:layout_constraintLeft_toRightOf="@id/deathSavesFailuresText"
+        app:layout_constraintRight_toLeftOf="@id/deathSavesFailureBox2"/>
+
+    <CheckBox
+        android:id="@+id/deathSavesFailureBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/deathSavesFailuresText"
+        app:layout_constraintBottom_toBottomOf="@id/deathSavesFailuresText"
+        app:layout_constraintLeft_toRightOf="@id/deathSavesFailureBox1"
+        app:layout_constraintRight_toLeftOf="@id/deathSavesFailureBox3"/>
+
+    <CheckBox
+        android:id="@+id/deathSavesFailureBox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/deathSavesFailuresText"
+        app:layout_constraintBottom_toBottomOf="@id/deathSavesFailuresText"
+        app:layout_constraintLeft_toRightOf="@id/deathSavesFailureBox2"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

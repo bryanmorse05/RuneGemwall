@@ -21,7 +21,7 @@ import android.widget.TextView;
 import com.example.bryan.runegemwall.fragments.CoreStats_Fragment;
 import com.example.bryan.runegemwall.fragments.Equipment_Fragment;
 import com.example.bryan.runegemwall.R;
-import com.example.bryan.runegemwall.fragments.FeaturesTraits_Fragment;
+import com.example.bryan.runegemwall.fragments.Traits_Fragment;
 import com.example.bryan.runegemwall.fragments.SavingThrows_Fragment;
 import com.example.bryan.runegemwall.fragments.Skills_Fragment;
 
@@ -238,7 +238,7 @@ public class CharacterStats_Activity extends AppCompatActivity {
                         fragment = new Equipment_Fragment();
                         break;
                     case 4:
-                        fragment = new FeaturesTraits_Fragment();
+                        fragment = new Traits_Fragment();
                         break;
                 }
 

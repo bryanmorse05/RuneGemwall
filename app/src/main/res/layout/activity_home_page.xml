@@ -23,13 +23,14 @@
         android:textSize="20sp"
         android:text="@string/home_page_character_name"/>
 
+    <!-- First row of buttons -->
     <Button
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/statsButton"
         app:layout_constraintLeft_toLeftOf="parent"
         android:text="@string/home_page_stats_button"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="90dp"
         app:layout_constraintRight_toLeftOf="@id/loreButton"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
@@ -38,26 +39,70 @@
         android:layout_width="wrap_content"
         android:id="@+id/loreButton"
         android:text="@string/home_page_lore_button"
-        app:layout_constraintRight_toLeftOf="@id/storeButton"
+        app:layout_constraintTop_toTopOf="@id/statsButton"
+        app:layout_constraintRight_toLeftOf="@id/chartButton"
         app:layout_constraintBottom_toBottomOf="@id/statsButton"
         app:layout_constraintLeft_toRightOf="@id/statsButton"/>
+
+    <Button
+        android:id="@+id/chartButton"
+        android:text="@string/home_page_chart_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/statsButton"
+        app:layout_constraintBottom_toBottomOf="@id/statsButton"
+        app:layout_constraintLeft_toRightOf="@id/loreButton"
+        app:layout_constraintRight_toLeftOf="@id/classButton"/>
+
+    <Button
+        android:id="@+id/classButton"
+        android:text="@string/home_page_class_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/statsButton"
+        app:layout_constraintBottom_toBottomOf="@id/statsButton"
+        app:layout_constraintLeft_toRightOf="@id/chartButton"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <!-- Second row of buttons -->
+    <Button
+        android:id="@+id/raceButton"
+        android:text="@string/home_page_race_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/statsButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/storeButton"/>
 
     <Button
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/storeButton"
         android:text="@string/home_page_store_button"
+        app:layout_constraintTop_toTopOf="@id/raceButton"
         app:layout_constraintRight_toLeftOf="@id/googleSheetButton"
-        app:layout_constraintBottom_toBottomOf="@id/statsButton"
-        app:layout_constraintLeft_toRightOf="@id/loreButton"/>
+        app:layout_constraintBottom_toBottomOf="@id/raceButton"
+        app:layout_constraintLeft_toRightOf="@id/raceButton"/>
 
     <Button
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/googleSheetButton"
         android:text="@string/home_page_google_sheets_button"
-        app:layout_constraintBottom_toBottomOf="@id/statsButton"
+        app:layout_constraintTop_toTopOf="@id/raceButton"
+        app:layout_constraintBottom_toBottomOf="@id/raceButton"
         app:layout_constraintLeft_toRightOf="@id/storeButton"
+        app:layout_constraintRight_toRightOf="@id/otherButton"/>
+
+    <Button
+        android:id="@+id/otherButton"
+        android:text="@string/home_page_other_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/raceButton"
+        app:layout_constraintBottom_toBottomOf="@id/raceButton"
+        app:layout_constraintLeft_toRightOf="@id/googleSheetButton"
         app:layout_constraintRight_toRightOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>

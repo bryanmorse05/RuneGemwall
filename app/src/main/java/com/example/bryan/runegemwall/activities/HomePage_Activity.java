@@ -11,7 +11,7 @@ import com.example.bryan.runegemwall.R;
 
 public class HomePage_Activity extends AppCompatActivity {
 
-    Button statsButton, loreButton, storeButton, googleSheetButton;
+    Button statsButton, loreButton, chartButton, classButton, raceButton, storeButton, googleSheetButton, otherButton;
 
 
     @Override
@@ -21,8 +21,12 @@ public class HomePage_Activity extends AppCompatActivity {
 
         statsButton = findViewById(R.id.statsButton);
         loreButton = findViewById(R.id.loreButton);
+        chartButton = findViewById(R.id.chartButton);
+        classButton = findViewById(R.id.classButton);
+        raceButton = findViewById(R.id.raceButton);
         storeButton = findViewById(R.id.storeButton);
         googleSheetButton = findViewById(R.id.googleSheetButton);
+        otherButton = findViewById(R.id.otherButton);
 
         statsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +40,14 @@ public class HomePage_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Lore_Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        chartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MonkChart_Activity.class);
                 startActivity(intent);
             }
         });

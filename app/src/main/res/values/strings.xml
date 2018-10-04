@@ -4,6 +4,10 @@
     <string name="home_page_lore_button">Lore</string>
     <string name="home_page_store_button">Store</string>
     <string name="home_page_google_sheets_button">Sheet</string>
+    <string name="home_page_chart_button">Monk</string>
+    <string name="home_page_class_button">Class</string>
+    <string name="home_page_race_button">Race</string>
+    <string name="home_page_other_button">Other</string>
     <string name="home_page_character_name">Rune Gemwall</string>
 
     <!-- Core Activities -->

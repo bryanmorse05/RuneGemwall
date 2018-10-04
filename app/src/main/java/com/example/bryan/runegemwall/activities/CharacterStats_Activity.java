@@ -1,6 +1,5 @@
 package com.example.bryan.runegemwall.activities;
 
-//import android.app.Fragment;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;

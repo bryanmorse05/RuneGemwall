@@ -3,14 +3,152 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingBottom="100dp"
     tools:context=".fragments.Equipment_Fragment">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/copperPiecesText"
+            android:text="@string/copper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toLeftOf="@id/numCopperPieces"
+            app:layout_constraintTop_toTopOf="@id/numCopperPieces"
+            app:layout_constraintBottom_toBottomOf="@id/numCopperPieces"
+            android:layout_marginRight="4dp"/>
+
+        <EditText
+            android:id="@+id/numCopperPieces"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:maxLength="3"
+            android:cursorVisible="false"
+            android:imeOptions="actionDone"
+            android:theme="@style/MyCustomEditTextTheme"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/numSilverPieces"/>
+
+        <TextView
+            android:id="@+id/silverPiecesText"
+            android:text="@string/silver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toLeftOf="@id/numSilverPieces"
+            app:layout_constraintTop_toTopOf="@id/numCopperPieces"
+            app:layout_constraintBottom_toBottomOf="@id/numCopperPieces"
+            android:layout_marginRight="4dp"/>
+
+        <EditText
+            android:id="@+id/numSilverPieces"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:maxLength="3"
+            android:cursorVisible="false"
+            android:imeOptions="actionDone"
+            android:theme="@style/MyCustomEditTextTheme"
+            app:layout_constraintTop_toTopOf="@id/numCopperPieces"
+            app:layout_constraintBottom_toBottomOf="@id/numCopperPieces"
+            app:layout_constraintRight_toLeftOf="@id/numElectrumPieces"
+            app:layout_constraintLeft_toRightOf="@id/numCopperPieces"/>
+
+        <TextView
+            android:id="@+id/electrumPiecesText"
+            android:text="@string/electrum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toLeftOf="@id/numElectrumPieces"
+            app:layout_constraintTop_toTopOf="@id/numCopperPieces"
+            app:layout_constraintBottom_toBottomOf="@id/numCopperPieces"
+            android:layout_marginRight="4dp"/>
+
+        <EditText
+            android:id="@+id/numElectrumPieces"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:maxLength="3"
+            android:cursorVisible="false"
+            android:imeOptions="actionDone"
+            android:theme="@style/MyCustomEditTextTheme"
+            app:layout_constraintTop_toTopOf="@id/numCopperPieces"
+            app:layout_constraintBottom_toBottomOf="@id/numCopperPieces"
+            app:layout_constraintLeft_toRightOf="@id/numSilverPieces"
+            app:layout_constraintRight_toLeftOf="@id/numGoldPieces"/>
+
+        <TextView
+            android:id="@+id/goldPiecesText"
+            android:text="@string/gold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toLeftOf="@id/numGoldPieces"
+            app:layout_constraintTop_toTopOf="@id/numCopperPieces"
+            app:layout_constraintBottom_toBottomOf="@id/numCopperPieces"
+            android:layout_marginRight="4dp"/>
+
+        <EditText
+            android:id="@+id/numGoldPieces"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:maxLength="3"
+            android:cursorVisible="false"
+            android:imeOptions="actionDone"
+            android:theme="@style/MyCustomEditTextTheme"
+            app:layout_constraintTop_toTopOf="@id/numCopperPieces"
+            app:layout_constraintBottom_toBottomOf="@id/numCopperPieces"
+            app:layout_constraintLeft_toRightOf="@id/numElectrumPieces"
+            app:layout_constraintRight_toLeftOf="@id/numPlatinumPieces"/>
+
+        <TextView
+            android:id="@+id/platinumPiecesText"
+            android:text="@string/platinum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toLeftOf="@id/numPlatinumPieces"
+            app:layout_constraintTop_toTopOf="@id/numCopperPieces"
+            app:layout_constraintBottom_toBottomOf="@id/numCopperPieces"
+            android:layout_marginRight="4dp"/>
+
+        <EditText
+            android:id="@+id/numPlatinumPieces"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:maxLength="3"
+            android:cursorVisible="false"
+            android:imeOptions="actionDone"
+            android:theme="@style/MyCustomEditTextTheme"
+            app:layout_constraintTop_toTopOf="@id/numCopperPieces"
+            app:layout_constraintBottom_toBottomOf="@id/numCopperPieces"
+            app:layout_constraintLeft_toRightOf="@id/numGoldPieces"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+    </android.support.constraint.ConstraintLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/equipmentRecyclerView"
         android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
 
     </android.support.v7.widget.RecyclerView>
 

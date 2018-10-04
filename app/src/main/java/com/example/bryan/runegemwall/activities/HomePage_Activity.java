@@ -1,8 +1,7 @@
 package com.example.bryan.runegemwall.activities;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +11,7 @@ import com.example.bryan.runegemwall.R;
 
 public class HomePage_Activity extends AppCompatActivity {
 
-    Button statsButton, loreButton, storeButton, glossaryButton;
+    Button statsButton, loreButton, storeButton, googleSheetButton;
 
 
     @Override
@@ -23,7 +22,7 @@ public class HomePage_Activity extends AppCompatActivity {
         statsButton = findViewById(R.id.statsButton);
         loreButton = findViewById(R.id.loreButton);
         storeButton = findViewById(R.id.storeButton);
-        glossaryButton = findViewById(R.id.glossaryButton);
+        googleSheetButton = findViewById(R.id.googleSheetButton);
 
         statsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,14 +43,16 @@ public class HomePage_Activity extends AppCompatActivity {
         storeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Do something
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.dndbeyond.com/equipment"));
+                startActivity(browserIntent);
             }
         });
 
-        glossaryButton.setOnClickListener(new View.OnClickListener() {
+        googleSheetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Do something
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/spreadsheets/d/18gpplrkmJR6B_MSf68brrKnQJGgjkjvZdGI7jymdVeo/edit#gid=903375314"));
+                startActivity(browserIntent);
             }
         });
 

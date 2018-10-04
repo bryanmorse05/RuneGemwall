@@ -141,8 +141,10 @@
 
     <android.support.design.widget.TabLayout
         android:id="@+id/statsTabLayout"
+        android:theme="@style/TabViewCustomTheme"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        app:tabIndicatorColor="@color/colorBlack"
         app:tabGravity="fill"
         app:tabMode="fixed"
         app:tabTextAppearance="@style/MyCustomTabTextTheme"

@@ -20,8 +20,10 @@ public class SavingThrows_Fragment extends Fragment {
 
     Integer strengthMod, dexterityMod, constitutionMod, intelligenceMod, wisdomMod, charismaMod, proficiencyBonus;
     Boolean strengthChecked, dexterityChecked, constitutionChecked, intelligenceChecked, wisdomChecked, charismaChecked;
+    Boolean SSBox1, SSBox2, SSBox3, SFBox1, SFBox2, SFBox3;
     TextView strengthSaveTV, dexteritySaveTV, constitutionSaveTV, intelligenceSaveTV, wisdomSaveTV, charismaSaveTV;
     CheckBox strengthSaveCheckBox, dexteritySaveCheckBox, constitutionSaveCheckBox, intelligenceSaveCheckBox, wisdomSaveCheckBox, charismaSaveCheckBox;
+    CheckBox saveSuccessBox1, saveSuccessBox2, saveSuccessBox3, saveFailureBox1, saveFailureBox2, saveFailureBox3;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,13 @@ public class SavingThrows_Fragment extends Fragment {
         wisdomChecked = sharedPreferences.getBoolean("WisdomSaveChecked", false);
         charismaChecked = sharedPreferences.getBoolean("CharismaSaveChecked", false);
 
+        SSBox1 = sharedPreferences.getBoolean("SSBox1", false);
+        SSBox2 = sharedPreferences.getBoolean("SSBox2", false);
+        SSBox3 = sharedPreferences.getBoolean("SSBox3", false);
+        SFBox1 = sharedPreferences.getBoolean("SFBox1", false);
+        SFBox2 = sharedPreferences.getBoolean("SFBox2", false);
+        SFBox3 = sharedPreferences.getBoolean("SFBox3", false);
+
         //Attaching the values to the textViews
         strengthSaveTV = view.findViewById(R.id.strengthSavingThrowValue);
         dexteritySaveTV = view.findViewById(R.id.dexteritySavingThrowValue);
@@ -70,9 +79,15 @@ public class SavingThrows_Fragment extends Fragment {
         wisdomSaveCheckBox = view.findViewById(R.id.wisdomSavingThrowCheckBox);
         charismaSaveCheckBox = view.findViewById(R.id.charismaSavingThrowCheckBox);
 
+        saveSuccessBox1 = view.findViewById(R.id.deathSavesSuccessBox1);
+        saveSuccessBox2 = view.findViewById(R.id.deathSavesSuccessBox2);
+        saveSuccessBox3 = view.findViewById(R.id.deathSavesSuccessBox3);
+        saveFailureBox1 = view.findViewById(R.id.deathSavesFailureBox1);
+        saveFailureBox2 = view.findViewById(R.id.deathSavesFailureBox2);
+        saveFailureBox3 = view.findViewById(R.id.deathSavesFailureBox3);
+
         //Load the current state of the checkboxes
         loadSavingThrowValues();
-
 
         //Setting listeners so if the user clicks, the value is changed and the state saved
         strengthSaveCheckBox.setOnClickListener(new View.OnClickListener() {
@@ -165,7 +180,84 @@ public class SavingThrows_Fragment extends Fragment {
             }
         });
 
+        //DEATH SAVES on click
+        saveSuccessBox1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (saveSuccessBox1.isChecked()) {
+                    editor.putBoolean("SSBox1", true);
+                }
+                else {
+                    editor.putBoolean("SSBox1", false);
+                }
+                editor.apply();
+            }
+        });
 
+        saveSuccessBox2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (saveSuccessBox2.isChecked()) {
+                    editor.putBoolean("SSBox2", true);
+                }
+                else {
+                    editor.putBoolean("SSBox2", false);
+                }
+                editor.apply();
+            }
+        });
+
+        saveSuccessBox3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (saveSuccessBox3.isChecked()) {
+                    editor.putBoolean("SSBox3", true);
+                }
+                else {
+                    editor.putBoolean("SSBox3", false);
+                }
+                editor.apply();
+            }
+        });
+
+        saveFailureBox1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (saveFailureBox1.isChecked()) {
+                    editor.putBoolean("SFBox1", true);
+                }
+                else {
+                    editor.putBoolean("SFBox1", false);
+                }
+                editor.apply();
+            }
+        });
+
+        saveFailureBox2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (saveFailureBox2.isChecked()) {
+                    editor.putBoolean("SFBox2", true);
+                }
+                else {
+                    editor.putBoolean("SFBox2", false);
+                }
+                editor.apply();
+            }
+        });
+
+        saveFailureBox3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (saveFailureBox3.isChecked()) {
+                    editor.putBoolean("SFBox3", true);
+                }
+                else {
+                    editor.putBoolean("SFBox3", false);
+                }
+                editor.apply();
+            }
+        });
 
         return view;
     }
@@ -215,7 +307,31 @@ public class SavingThrows_Fragment extends Fragment {
             charismaSaveCheckBox.setChecked(true);
         } else {
             charismaSaveTV.setText(String.valueOf(charismaMod));
-        } 
+        }
+
+        if (SSBox1) {
+            saveSuccessBox1.setChecked(true);
+        }
+
+        if (SSBox2) {
+            saveSuccessBox2.setChecked(true);
+        }
+
+        if (SSBox3) {
+            saveSuccessBox3.setChecked(true);
+        }
+
+        if (SFBox1) {
+            saveFailureBox1.setChecked(true);
+        }
+
+        if (SFBox2) {
+            saveFailureBox2.setChecked(true);
+        }
+
+        if (SFBox3) {
+            saveFailureBox3.setChecked(true);
+        }
     }
 
 }

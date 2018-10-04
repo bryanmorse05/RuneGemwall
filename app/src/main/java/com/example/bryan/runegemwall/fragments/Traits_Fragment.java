@@ -1,7 +1,5 @@
 package com.example.bryan.runegemwall.fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,11 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.bryan.runegemwall.R;
-import com.example.bryan.runegemwall.adapters.EquipmentRecyclerAdapter;
 import com.example.bryan.runegemwall.adapters.TraitsRecyclerAdapter;
-import com.example.bryan.runegemwall.models.EquipmentModel;
 import com.example.bryan.runegemwall.models.TraitsModel;
-import com.example.bryan.runegemwall.retrofit.RetrofitEquipmentAPI;
 import com.example.bryan.runegemwall.retrofit.RetrofitInstance;
 import com.example.bryan.runegemwall.retrofit.RetrofitTraitsAPI;
 

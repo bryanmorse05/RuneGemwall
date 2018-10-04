@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">RuneGemwall</string>
+    <string name="app_name">Rune Gemwall</string>
     <string name="home_page_stats_button">Stats</string>
     <string name="home_page_lore_button">Lore</string>
     <string name="home_page_store_button">Store</string>
-    <string name="home_page_glossary_button">Glossary</string>
+    <string name="home_page_google_sheets_button">Sheet</string>
     <string name="home_page_character_name">Rune Gemwall</string>
 
     <!-- Core Activities -->
@@ -33,5 +33,12 @@
     <string name="death_saves">Death Saves</string>
     <string name="successes">Successes</string>
     <string name="failures">Failures</string>
+
+    <!-- Equipment -->
+    <string name="copper">CP</string>
+    <string name="silver">SP</string>
+    <string name="electrum">EP</string>
+    <string name="gold">GP</string>
+    <string name="platinum">PP</string>
 
 </resources>

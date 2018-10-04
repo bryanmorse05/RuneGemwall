@@ -14,7 +14,7 @@ public class MonkChart_Activity extends AppCompatActivity {
 
         //Back button enabled
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Stats");
+        getSupportActionBar().setTitle("The Monk Chart");
 
 
     }

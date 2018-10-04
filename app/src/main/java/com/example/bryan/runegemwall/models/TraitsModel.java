@@ -11,6 +11,9 @@ public class TraitsModel {
     @SerializedName("description")
     @Expose
     private String description;
+    @SerializedName("level")
+    @Expose
+    private String level;
 
     public String getName() {
         return name;
@@ -26,5 +29,13 @@ public class TraitsModel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
     }
 }

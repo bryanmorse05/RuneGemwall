@@ -73,6 +73,7 @@ public class Traits_Fragment extends Fragment {
 
                     traitsModel.setName(eventsList.get(i).getName());
                     traitsModel.setDescription(eventsList.get(i).getDescription());
+                    traitsModel.setLevel(eventsList.get(i).getLevel());
 
                     traitsModelArrayList.add(traitsModel);
 

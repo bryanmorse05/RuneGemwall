@@ -12,7 +12,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="30dp"/>
+        android:layout_marginStart="30dp"/>
 
     <TextView
         android:id="@+id/skillName"
@@ -21,8 +21,7 @@
         app:layout_constraintTop_toTopOf="@id/skillCheckBox"
         app:layout_constraintBottom_toBottomOf="@id/skillCheckBox"
         app:layout_constraintLeft_toRightOf="@id/skillCheckBox"
-        android:layout_marginLeft="40dp"
-        android:text="Name"/>
+        android:layout_marginStart="40dp" />
 
     <TextView
         android:id="@+id/skillType"
@@ -31,8 +30,7 @@
         app:layout_constraintTop_toTopOf="@id/skillCheckBox"
         app:layout_constraintBottom_toBottomOf="@id/skillCheckBox"
         app:layout_constraintLeft_toRightOf="@id/skillName"
-        android:layout_marginLeft="8dp"
-        android:text="Type"/>
+        android:layout_marginStart="8dp" />
 
     <TextView
         android:id="@+id/skillValue"
@@ -41,6 +39,6 @@
         app:layout_constraintTop_toTopOf="@id/skillCheckBox"
         app:layout_constraintBottom_toBottomOf="@id/skillCheckBox"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="60dp" />
+        android:layout_marginEnd="60dp" />
 
 </android.support.constraint.ConstraintLayout>

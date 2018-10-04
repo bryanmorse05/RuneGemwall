@@ -40,8 +40,11 @@ public class TraitsRecyclerAdapter extends RecyclerView.Adapter<TraitsRecyclerAd
         TextView nameDisplay = holder.nameDisplay;
         nameDisplay.setText(traitsModel.getName());
 
-        TextView ownerDisplay = holder.descriptionDisplay;
-        ownerDisplay.setText(traitsModel.getDescription());
+        TextView descriptionDisplay = holder.descriptionDisplay;
+        descriptionDisplay.setText(traitsModel.getDescription());
+
+        TextView levelDisplay = holder.levelDisplay;
+        levelDisplay.setText(traitsModel.getLevel());
 
     }
 
@@ -55,6 +58,7 @@ public class TraitsRecyclerAdapter extends RecyclerView.Adapter<TraitsRecyclerAd
 
         public TextView nameDisplay;
         public TextView descriptionDisplay;
+        public TextView levelDisplay;
 
         public ViewHolder(View itemView) {
 
@@ -62,6 +66,7 @@ public class TraitsRecyclerAdapter extends RecyclerView.Adapter<TraitsRecyclerAd
 
             nameDisplay = itemView.findViewById(R.id.traitName);
             descriptionDisplay = itemView.findViewById(R.id.traitDescription);
+            levelDisplay = itemView.findViewById(R.id.traitLevel);
 
             context = itemView.getContext();
         }

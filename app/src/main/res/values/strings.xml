@@ -48,13 +48,13 @@
     <!-- Lore -->
     <string name="background">Background: Noble</string>
     <string name="alignment">Alignment: Lawful Neutral</string>
-    <string name="personality_trailts">Personality Traits</string>
+    <string name="personality_traits">Personality Traits</string>
     <string name="ideals">Ideals</string>
     <string name="bonds">Bonds</string>
     <string name="flaws">Flaws</string>
-    <string name="pt_description">Lea, dancer</string>
+    <string name="pt_description">Bubbly, dancer</string>
     <string name="i_description">Everyone have a good time exploring</string>
-    <string name="b_description">Monestary of the Sore First and Rosy Palma</string>
+    <string name="b_description">Monastery of the Sore First and Rosy Palma</string>
     <string name="f_description">Cannot tolerate the presence of milk.  Does not take into account negative consequences</string>
 
 </resources>

@@ -12,7 +12,6 @@
 
 
     <!-- Strength row -->
-
     <EditText
         android:id="@+id/baseStrength"
         android:layout_width="wrap_content"
@@ -52,7 +51,6 @@
         android:layout_marginEnd="75dp" />
 
     <!-- Dexterity row -->
-
     <EditText
         android:id="@+id/baseDexterity"
         android:layout_width="wrap_content"
@@ -92,7 +90,6 @@
         android:layout_marginEnd="75dp" />
 
     <!-- Constitution row -->
-
     <EditText
         android:id="@+id/baseConstitution"
         android:layout_width="wrap_content"
@@ -132,7 +129,6 @@
         android:layout_marginEnd="75dp" />
 
     <!-- Intelligence row -->
-
     <EditText
         android:id="@+id/baseIntelligence"
         android:layout_width="wrap_content"
@@ -172,7 +168,6 @@
         android:layout_marginEnd="75dp" />
 
     <!-- Wisdom row -->
-
     <EditText
         android:id="@+id/baseWisdom"
         android:layout_width="wrap_content"
@@ -211,7 +206,6 @@
         android:layout_marginEnd="75dp" />
 
     <!-- Charisma row -->
-
     <EditText
         android:id="@+id/baseCharisma"
         android:layout_width="wrap_content"
@@ -226,7 +220,7 @@
         android:theme="@style/MyCustomEditTextTheme"
         app:layout_constraintTop_toBottomOf="@id/baseWisdom"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/maxHPText"
+        app:layout_constraintBottom_toTopOf="@id/characterLevelText"
         android:layout_marginStart="75dp" />
 
     <TextView
@@ -252,18 +246,74 @@
 
 
 
-    <!-- Max HP row -->
+    <!-- LV and XP row -->
+    <TextView
+        android:id="@+id/characterLevelText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/currentCharacterLevel"
+        app:layout_constraintBottom_toBottomOf="@id/currentCharacterLevel"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/currentCharacterLevel"
+        android:layout_marginStart="100dp"
+        android:text="@string/level" />
 
+    <EditText
+        android:id="@+id/currentCharacterLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:maxLines="1"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:maxLength="2"
+        android:cursorVisible="false"
+        android:imeOptions="actionDone"
+        android:theme="@style/MyCustomEditTextTheme"
+        app:layout_constraintTop_toBottomOf="@id/baseCharisma"
+        app:layout_constraintBottom_toTopOf="@id/maxHPValue"
+        app:layout_constraintLeft_toRightOf="@id/characterLevelText"
+        app:layout_constraintRight_toLeftOf="@id/characterExperienceText" />
+
+    <TextView
+        android:id="@+id/characterExperienceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/currentCharacterLevel"
+        app:layout_constraintBottom_toBottomOf="@id/currentCharacterLevel"
+        app:layout_constraintLeft_toRightOf="@id/currentCharacterLevel"
+        app:layout_constraintRight_toLeftOf="@id/currentCharacterExperience"
+        android:text="@string/exp" />
+
+    <EditText
+        android:id="@+id/currentCharacterExperience"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:maxLength="5"
+        android:cursorVisible="false"
+        android:imeOptions="actionDone"
+        android:theme="@style/MyCustomEditTextTheme"
+        app:layout_constraintTop_toTopOf="@id/currentCharacterLevel"
+        app:layout_constraintBottom_toBottomOf="@id/currentCharacterLevel"
+        app:layout_constraintLeft_toRightOf="@id/characterExperienceText"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="100dp"/>
+
+
+
+    <!-- Max HP row -->
     <TextView
         android:id="@+id/maxHPText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        android:padding="20dp"
-        app:layout_constraintTop_toBottomOf="@id/baseCharisma"
+        app:layout_constraintTop_toBottomOf="@id/characterLevelText"
         app:layout_constraintBottom_toTopOf="@id/proficiencyText"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/maxHPValue"
+        android:layout_marginStart="100dp"
         android:text="@string/maxHP"/>
 
     <EditText
@@ -280,16 +330,44 @@
         app:layout_constraintTop_toBottomOf="@id/maxHPText"
         app:layout_constraintBottom_toTopOf="@id/maxHPText"
         app:layout_constraintLeft_toRightOf="@id/maxHPText"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toLeftOf="@id/tempHPText" />
+
+    <TextView
+        android:id="@+id/tempHPText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/maxHPText"
+        app:layout_constraintBottom_toTopOf="@id/maxHPText"
+        app:layout_constraintLeft_toRightOf="@id/maxHPValue"
+        app:layout_constraintRight_toLeftOf="@id/tempHPValue"
+        android:text="@string/tempHP"/>
+
+    <EditText
+        android:id="@+id/tempHPValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:maxLength="3"
+        android:cursorVisible="false"
+        android:imeOptions="actionDone"
+        android:theme="@style/MyCustomEditTextTheme"
+        app:layout_constraintTop_toBottomOf="@id/maxHPText"
+        app:layout_constraintBottom_toTopOf="@id/maxHPText"
+        app:layout_constraintLeft_toRightOf="@id/tempHPText"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="100dp"/>
+
+
 
     <!-- Proficiency Row -->
-
     <TextView
         android:id="@+id/proficiencyText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_chainStyle="packed"
-        android:padding="20dp"
         app:layout_constraintTop_toBottomOf="@id/maxHPText"
         app:layout_constraintBottom_toTopOf="@id/initiativeText"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -312,16 +390,16 @@
         app:layout_constraintLeft_toRightOf="@id/proficiencyText"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <!-- Initiative row -->
 
+
+
+    <!-- Passive Perception and Initiative row -->
     <TextView
         android:id="@+id/initiativeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        android:padding="20dp"
         app:layout_constraintTop_toBottomOf="@id/proficiencyText"
-        app:layout_constraintBottom_toTopOf="@id/passivePerceptionText"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/initiativeValue"
         android:text="@string/initiative"/>
@@ -332,22 +410,19 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textColor="@color/colorBlack"
-        app:layout_constraintTop_toBottomOf="@id/initiativeText"
-        app:layout_constraintBottom_toTopOf="@id/initiativeText"
+        app:layout_constraintTop_toTopOf="@id/initiativeText"
+        app:layout_constraintBottom_toBottomOf="@id/initiativeText"
         app:layout_constraintLeft_toRightOf="@id/initiativeText"
-        app:layout_constraintRight_toRightOf="parent" />
-
-    <!-- Passive Perception row -->
+        app:layout_constraintRight_toLeftOf="@id/passivePerceptionText" />
 
     <TextView
         android:id="@+id/passivePerceptionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_chainStyle="packed"
-        android:padding="20dp"
-        app:layout_constraintTop_toBottomOf="@id/initiativeText"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/initiativeText"
+        app:layout_constraintBottom_toBottomOf="@id/initiativeText"
+        app:layout_constraintLeft_toRightOf="@id/initiativeValue"
         app:layout_constraintRight_toLeftOf="@id/passivePerceptionValue"
         android:text="@string/passivePerception"/>
 
@@ -355,10 +430,10 @@
         android:id="@+id/passivePerceptionValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textColor="@color/colorBlack"
-        app:layout_constraintTop_toBottomOf="@id/passivePerceptionText"
-        app:layout_constraintBottom_toTopOf="@id/passivePerceptionText"
+        app:layout_constraintTop_toTopOf="@id/initiativeText"
+        app:layout_constraintBottom_toBottomOf="@id/initiativeText"
         app:layout_constraintLeft_toRightOf="@id/passivePerceptionText"
         app:layout_constraintRight_toRightOf="parent" />
 

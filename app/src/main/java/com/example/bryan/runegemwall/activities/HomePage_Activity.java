@@ -26,7 +26,7 @@ public class HomePage_Activity extends AppCompatActivity {
         raceButton = findViewById(R.id.raceButton);
         storeButton = findViewById(R.id.storeButton);
         googleSheetButton = findViewById(R.id.googleSheetButton);
-        otherButton = findViewById(R.id.otherButton);
+        otherButton = findViewById(R.id.brownJohnButton);
 
         statsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +48,22 @@ public class HomePage_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MonkChart_Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        classButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MonkClass_Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        raceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), HumanRace_Activity.class);
                 startActivity(intent);
             }
         });

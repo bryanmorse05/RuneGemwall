@@ -7,13 +7,14 @@
     <string name="home_page_chart_button">Monk</string>
     <string name="home_page_class_button">Class</string>
     <string name="home_page_race_button">Race</string>
-    <string name="home_page_other_button">Other</string>
+    <string name="home_page_other_button">B. John</string>
     <string name="home_page_character_name">Rune Gemwall</string>
 
     <!-- Core Activities -->
     <string name="hp">HP: </string>
     <string name="ac">AC: </string>
     <string name="speed">SPD: </string>
+    <string name="ki">Ki: </string>
     <string name="level">LVL: </string>
     <string name="exp">EXP: </string>
     <string name="stats_tab1">Core</string>
@@ -29,10 +30,11 @@
     <string name="intelligence">Intelligence</string>
     <string name="wisdom">Wisdom</string>
     <string name="charisma">Charisma</string>
-    <string name="maxHP">Max HP</string>
-    <string name="proficiency">Proficiency</string>
-    <string name="initiative">Initiative</string>
-    <string name="passivePerception">Passive Perception</string>
+    <string name="maxHP">Max HP: </string>
+    <string name="tempHP">Temp HP: </string>
+    <string name="proficiency">Proficiency: </string>
+    <string name="initiative">Initiative: </string>
+    <string name="passivePerception">Passive Perception: </string>
 
     <string name="death_saves">Death Saves</string>
     <string name="successes">Successes</string>

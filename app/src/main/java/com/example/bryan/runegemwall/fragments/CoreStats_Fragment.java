@@ -17,12 +17,12 @@ import com.example.bryan.runegemwall.R;
 public class CoreStats_Fragment extends Fragment {
 
     EditText strengthValueET, dexterityValueET, constitutionValueET, intelligenceValueET, wisdomValueET, charismaValueET;
-    EditText maxHPET, proficiencyET;
+    EditText levelET, experienceET, maxHPET, tempHPET, proficiencyET;
     TextView strengthModTV, dexterityModTV, constitutionModTV, intelligenceModTV, wisdomModTV, charismaModTV;
     TextView initiativeTV, passivePerceptionTV;
     Integer strengthValue, dexterityValue, constitutionValue, intelligenceValue, wisdomValue, charismaValue;
     Integer strengthMod, dexterityMod, constitutionMod, intelligenceMod, wisdomMod, charismaMod;
-    Integer maxHPValue, proficiencyValue, passivePerceptionValue;
+    Integer levelValue, experienceValue, maxHPValue, tempHPValue, proficiencyValue, passivePerceptionValue;
 
     public CoreStats_Fragment() {
         // Required empty public constructor
@@ -49,7 +49,11 @@ public class CoreStats_Fragment extends Fragment {
         intelligenceValue = sharedPreferences.getInt("IntelligenceValue", 0);
         wisdomValue = sharedPreferences.getInt("WisdomValue", 0);
         charismaValue = sharedPreferences.getInt("CharismaValue", 0);
+        levelValue = sharedPreferences.getInt("CharacterLevel", 0);
+        experienceValue = sharedPreferences.getInt("CharacterExperience", 0);
         maxHPValue = sharedPreferences.getInt("CharacterMaxHP", 0);
+        tempHPValue = sharedPreferences.getInt("CharacterTempHP", 0);
+
         proficiencyValue = sharedPreferences.getInt("CharacterProficiency", 0);
 
         //Attaching the widgets
@@ -67,9 +71,12 @@ public class CoreStats_Fragment extends Fragment {
         wisdomValueET = view.findViewById(R.id.baseWisdom);
         charismaValueET = view.findViewById(R.id.baseCharisma);
 
+        levelET = view.findViewById(R.id.currentCharacterLevel);
+        experienceET = view.findViewById(R.id.currentCharacterExperience);
         initiativeTV = view.findViewById(R.id.initiativeValue);
         passivePerceptionTV = view.findViewById(R.id.passivePerceptionValue);
         maxHPET = view.findViewById(R.id.maxHPValue);
+        tempHPET = view.findViewById(R.id.tempHPValue);
         proficiencyET = view.findViewById(R.id.proficiencyValue);
 
         //Fill in the stats
@@ -79,7 +86,10 @@ public class CoreStats_Fragment extends Fragment {
         intelligenceValueET.setText(String.valueOf(intelligenceValue));
         wisdomValueET.setText(String.valueOf(wisdomValue));
         charismaValueET.setText(String.valueOf(charismaValue));
+        levelET.setText(String.valueOf(levelValue));
+        experienceET.setText(String.valueOf(experienceValue));
         maxHPET.setText(String.valueOf(maxHPValue));
+        tempHPET.setText(String.valueOf(tempHPValue));
         proficiencyET.setText(String.valueOf(proficiencyValue));
 
 
@@ -224,6 +234,23 @@ public class CoreStats_Fragment extends Fragment {
             }
         });
 
+        tempHPET.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                saveData("tempHP");
+            }
+        });
+
         proficiencyET.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -238,6 +265,40 @@ public class CoreStats_Fragment extends Fragment {
             @Override
             public void afterTextChanged(Editable editable) {
 
+            }
+        });
+
+        levelET.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                saveData("lvl");
+            }
+        });
+
+        experienceET.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                saveData("exp");
             }
         });
 
@@ -449,12 +510,33 @@ public class CoreStats_Fragment extends Fragment {
                 }
                 editor.putInt("CharacterMaxHP", maxHPValue);
                 break;
+            case "tempHP":
+                try {
+                    tempHPValue = Integer.parseInt(tempHPET.getText().toString());
+                } catch (NumberFormatException nfe) {
+                }
+                editor.putInt("CharacterTempHP", tempHPValue);
+                break;
             case "pro":
                 try {
                     proficiencyValue = Integer.parseInt(proficiencyET.getText().toString());
                 } catch (NumberFormatException nfe) {
                 }
                 editor.putInt("CharacterProficiency", proficiencyValue);
+                break;
+            case "lvl":
+                try {
+                    levelValue = Integer.parseInt(levelET.getText().toString());
+                } catch (NumberFormatException nfe) {
+                }
+                editor.putInt("CharacterLevel", levelValue);
+                break;
+            case "exp":
+                try {
+                    experienceValue = Integer.parseInt(experienceET.getText().toString());
+                } catch (NumberFormatException nfe) {
+                }
+                editor.putInt("CharacterExperience", experienceValue);
                 break;
         }
         editor.apply();

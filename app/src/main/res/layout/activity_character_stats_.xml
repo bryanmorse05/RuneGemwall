@@ -16,12 +16,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toLeftOf="@id/currentHitPoints"
         app:layout_constraintBottom_toTopOf="@+id/statsTabLayout"
-        android:layout_marginRight="5dp"
+        android:layout_marginRight="1dp"
         android:text="@string/hp" />
 
     <EditText
         android:id="@+id/currentHitPoints"
-        android:layout_width="40dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:maxLines="1"
         android:inputType="number"
@@ -84,21 +84,21 @@
         android:theme="@style/MyCustomEditTextTheme"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@id/currentArmorClass"
-        app:layout_constraintRight_toRightOf="@id/currentCharacterLevel"
+        app:layout_constraintRight_toRightOf="@id/kiPoints"
         app:layout_constraintBottom_toTopOf="@id/statsTabLayout" />
 
     <TextView
-        android:id="@+id/characterLevelText"
+        android:id="@+id/kiPointsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/currentCharacterLevel"
+        app:layout_constraintRight_toLeftOf="@id/kiPoints"
         app:layout_constraintBottom_toTopOf="@id/statsTabLayout"
         android:layout_marginRight="1dp"
-        android:text="@string/level" />
+        android:text="@string/ki" />
 
     <EditText
-        android:id="@+id/currentCharacterLevel"
+        android:id="@+id/kiPoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:maxLines="1"
@@ -110,32 +110,6 @@
         android:theme="@style/MyCustomEditTextTheme"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@id/currentCharacterSpeed"
-        app:layout_constraintRight_toRightOf="@id/currentCharacterExperience"
-        app:layout_constraintBottom_toTopOf="@id/statsTabLayout" />
-
-    <TextView
-        android:id="@+id/characterExperienceText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/currentCharacterExperience"
-        app:layout_constraintBottom_toTopOf="@id/statsTabLayout"
-        android:layout_marginRight="1dp"
-        android:text="@string/exp" />
-
-    <EditText
-        android:id="@+id/currentCharacterExperience"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:inputType="number"
-        android:textAlignment="center"
-        android:maxLength="5"
-        android:cursorVisible="false"
-        android:imeOptions="actionDone"
-        android:theme="@style/MyCustomEditTextTheme"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/currentCharacterLevel"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@id/statsTabLayout" />
 

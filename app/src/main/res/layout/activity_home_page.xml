@@ -93,10 +93,10 @@
         app:layout_constraintTop_toTopOf="@id/raceButton"
         app:layout_constraintBottom_toBottomOf="@id/raceButton"
         app:layout_constraintLeft_toRightOf="@id/storeButton"
-        app:layout_constraintRight_toRightOf="@id/otherButton"/>
+        app:layout_constraintRight_toRightOf="@id/brownJohnButton"/>
 
     <Button
-        android:id="@+id/otherButton"
+        android:id="@+id/brownJohnButton"
         android:text="@string/home_page_other_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -20,14 +20,21 @@
         </activity>
         <activity
             android:name=".activities.CharacterStats_Activity"
-            android:parentActivityName=".activities.HomePage_Activity"></activity>
+            android:parentActivityName=".activities.HomePage_Activity" />
         <activity
             android:name=".activities.Lore_Activity"
-            android:parentActivityName=".activities.HomePage_Activity"></activity>
-        <activity android:name=".activities.MonkChart_Activity"
+            android:parentActivityName=".activities.HomePage_Activity" />
+        <activity
+            android:name=".activities.MonkChart_Activity"
             android:parentActivityName=".activities.HomePage_Activity"
             android:screenOrientation="landscape">
-
+        </activity>
+        <activity
+            android:name=".activities.HumanRace_Activity"
+            android:parentActivityName=".activities.HomePage_Activity">
+        </activity>
+        <activity android:name=".activities.MonkClass_Activity"
+            android:parentActivityName=".activities.HumanRace_Activity">
         </activity>
     </application>
 

@@ -29,9 +29,9 @@ public class CharacterStats_Activity extends AppCompatActivity {
     ConstraintLayout statsConstraintLayout;     //THE BIG ONE  The entire activity layout
     ConstraintLayout statsLayout;               //The layout view to be replaced
     TabLayout tabLayout;
-    EditText currentHitPointsET, currentArmorClassET, currentCharacterSpeedET, currentCharacterLevelET, currentCharacterExperienceET;
+    EditText currentHitPointsET, currentArmorClassET, currentCharacterSpeedET, kiPointsET;
     TextView hitPointsText;                     //Only needed to set the focus on it instead of the EditText fields
-    Integer hitPointsValue, armorClassValue, characterSpeedValue, characterLevelValue, characterExperienceValue;
+    Integer hitPointsValue, armorClassValue, characterSpeedValue, kiPoints;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +45,7 @@ public class CharacterStats_Activity extends AppCompatActivity {
         currentHitPointsET = findViewById(R.id.currentHitPoints);
         currentArmorClassET = findViewById(R.id.currentArmorClass);
         currentCharacterSpeedET = findViewById(R.id.currentCharacterSpeed);
-        currentCharacterLevelET = findViewById(R.id.currentCharacterLevel);
-        currentCharacterExperienceET = findViewById(R.id.currentCharacterExperience);
+        kiPointsET = findViewById(R.id.kiPoints);
         hitPointsText = findViewById(R.id.hitPointsText);                                           //Need this only to switch focus after user taps on screen to dismiss keyboard
 
         //Back button enabled
@@ -63,15 +62,13 @@ public class CharacterStats_Activity extends AppCompatActivity {
         hitPointsValue = sharedPreferences.getInt("CharacterHP", 0);
         armorClassValue = sharedPreferences.getInt("CharacterAC", 0);
         characterSpeedValue = sharedPreferences.getInt("CharacterSpeed", 0);
-        characterLevelValue = sharedPreferences.getInt("CharacterLevel", 0);
-        characterExperienceValue = sharedPreferences.getInt("CharacterExperience", 0);
+        kiPoints = sharedPreferences.getInt("KiPoints", 0);
 
         //Populate the corresponding EditText fields
         currentHitPointsET.setText(String.valueOf(hitPointsValue));
         currentArmorClassET.setText(String.valueOf(armorClassValue));
         currentCharacterSpeedET.setText(String.valueOf(characterSpeedValue));
-        currentCharacterLevelET.setText(String.valueOf(characterLevelValue));
-        currentCharacterExperienceET.setText(String.valueOf(characterExperienceValue));
+        kiPointsET.setText(String.valueOf(kiPoints));
 
 
 
@@ -140,13 +137,14 @@ public class CharacterStats_Activity extends AppCompatActivity {
                 } catch (NumberFormatException nfe) {
                 }
                 editor.putInt("CharacterSpeed", characterSpeedValue);
+                editor.apply();
             }
         });
 
-        currentCharacterLevelET.addTextChangedListener(new TextWatcher() {
+        kiPointsET.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                currentCharacterLevelET.setCursorVisible(true);
+
             }
 
             @Override
@@ -157,31 +155,10 @@ public class CharacterStats_Activity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 try {
-                    characterLevelValue = Integer.parseInt(currentCharacterLevelET.getText().toString());
+                    kiPoints = Integer.parseInt(kiPointsET.getText().toString());
                 } catch (NumberFormatException nfe) {
                 }
-                editor.putInt("CharacterLevel", characterLevelValue);
-            }
-        });
-
-        currentCharacterExperienceET.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                currentCharacterExperienceET.setCursorVisible(true);
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                try {
-                    characterExperienceValue = Integer.parseInt(currentCharacterExperienceET.getText().toString());
-                } catch (NumberFormatException nfe) {
-                }
-                editor.putInt("CharacterExperience", characterExperienceValue);
+                editor.putInt("KiPoints", kiPoints);
                 editor.apply();
             }
         });
@@ -196,8 +173,7 @@ public class CharacterStats_Activity extends AppCompatActivity {
                 currentHitPointsET.setCursorVisible(false);
                 currentArmorClassET.setCursorVisible(false);
                 currentCharacterSpeedET.setCursorVisible(false);
-                currentCharacterLevelET.setCursorVisible(false);
-                currentCharacterExperienceET.setCursorVisible(false);
+                kiPointsET.setCursorVisible(false);
 
                 //I only need this so the focus is on something else other than the editText fields
                 hitPointsText.setFocusableInTouchMode(true);

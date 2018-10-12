@@ -35,6 +35,7 @@
     <string name="proficiency">Proficiency: </string>
     <string name="initiative">Initiative: </string>
     <string name="passivePerception">Passive Perception: </string>
+    <string name="maxKi">Max Ki: </string>
 
     <string name="death_saves">Death Saves</string>
     <string name="successes">Successes</string>

@@ -17,12 +17,12 @@ import com.example.bryan.runegemwall.R;
 public class CoreStats_Fragment extends Fragment {
 
     EditText strengthValueET, dexterityValueET, constitutionValueET, intelligenceValueET, wisdomValueET, charismaValueET;
-    EditText levelET, experienceET, maxHPET, tempHPET, proficiencyET;
+    EditText levelET, experienceET, maxHPET, tempHPET, maxKiValueET, proficiencyET;
     TextView strengthModTV, dexterityModTV, constitutionModTV, intelligenceModTV, wisdomModTV, charismaModTV;
     TextView initiativeTV, passivePerceptionTV;
     Integer strengthValue, dexterityValue, constitutionValue, intelligenceValue, wisdomValue, charismaValue;
     Integer strengthMod, dexterityMod, constitutionMod, intelligenceMod, wisdomMod, charismaMod;
-    Integer levelValue, experienceValue, maxHPValue, tempHPValue, proficiencyValue, passivePerceptionValue;
+    Integer levelValue, experienceValue, maxHPValue, tempHPValue, maxKiValue, proficiencyValue, passivePerceptionValue;
 
     public CoreStats_Fragment() {
         // Required empty public constructor
@@ -53,6 +53,7 @@ public class CoreStats_Fragment extends Fragment {
         experienceValue = sharedPreferences.getInt("CharacterExperience", 0);
         maxHPValue = sharedPreferences.getInt("CharacterMaxHP", 0);
         tempHPValue = sharedPreferences.getInt("CharacterTempHP", 0);
+        maxKiValue = sharedPreferences.getInt("CharacterMaxKi", 0);
 
         proficiencyValue = sharedPreferences.getInt("CharacterProficiency", 0);
 
@@ -77,6 +78,7 @@ public class CoreStats_Fragment extends Fragment {
         passivePerceptionTV = view.findViewById(R.id.passivePerceptionValue);
         maxHPET = view.findViewById(R.id.maxHPValue);
         tempHPET = view.findViewById(R.id.tempHPValue);
+        maxKiValueET = view.findViewById(R.id.maxKiValue);
         proficiencyET = view.findViewById(R.id.proficiencyValue);
 
         //Fill in the stats
@@ -90,6 +92,7 @@ public class CoreStats_Fragment extends Fragment {
         experienceET.setText(String.valueOf(experienceValue));
         maxHPET.setText(String.valueOf(maxHPValue));
         tempHPET.setText(String.valueOf(tempHPValue));
+        maxKiValueET.setText(String.valueOf(maxKiValue));
         proficiencyET.setText(String.valueOf(proficiencyValue));
 
 
@@ -248,6 +251,23 @@ public class CoreStats_Fragment extends Fragment {
             @Override
             public void afterTextChanged(Editable editable) {
                 saveData("tempHP");
+            }
+        });
+
+        maxKiValueET.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                saveData("maxKi");
             }
         });
 
@@ -438,7 +458,6 @@ public class CoreStats_Fragment extends Fragment {
                     dexterityModTV.setText(String.valueOf(dexterityMod));
                     initiativeTV.setText(String.valueOf(dexterityMod));
                 }
-
                 break;
             case "con":
                 if (constitutionMod > 0) {
@@ -516,6 +535,13 @@ public class CoreStats_Fragment extends Fragment {
                 } catch (NumberFormatException nfe) {
                 }
                 editor.putInt("CharacterTempHP", tempHPValue);
+                break;
+            case "maxKi":
+                try {
+                    maxKiValue = Integer.parseInt(maxKiValueET.getText().toString());
+                } catch (NumberFormatException nfe) {
+                }
+                editor.putInt("CharacterMaxKi", maxKiValue);
                 break;
             case "pro":
                 try {

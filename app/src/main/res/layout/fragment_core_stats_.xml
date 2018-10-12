@@ -309,11 +309,11 @@
         android:id="@+id/maxHPText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintTop_toBottomOf="@id/characterLevelText"
         app:layout_constraintBottom_toTopOf="@id/proficiencyText"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/maxHPValue"
-        android:layout_marginStart="100dp"
         android:text="@string/maxHP"/>
 
     <EditText
@@ -330,13 +330,13 @@
         app:layout_constraintTop_toBottomOf="@id/maxHPText"
         app:layout_constraintBottom_toTopOf="@id/maxHPText"
         app:layout_constraintLeft_toRightOf="@id/maxHPText"
-        app:layout_constraintRight_toLeftOf="@id/tempHPText" />
+        app:layout_constraintRight_toLeftOf="@id/tempHPText"
+        android:layout_marginEnd="20dp"/>
 
     <TextView
         android:id="@+id/tempHPText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintTop_toBottomOf="@id/maxHPText"
         app:layout_constraintBottom_toTopOf="@id/maxHPText"
         app:layout_constraintLeft_toRightOf="@id/maxHPValue"
@@ -357,19 +357,17 @@
         app:layout_constraintTop_toBottomOf="@id/maxHPText"
         app:layout_constraintBottom_toTopOf="@id/maxHPText"
         app:layout_constraintLeft_toRightOf="@id/tempHPText"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginEnd="100dp"/>
+        app:layout_constraintRight_toRightOf="parent" />
 
 
 
-    <!-- Proficiency Row -->
+    <!-- Proficiency & Max Ki Row -->
     <TextView
         android:id="@+id/proficiencyText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@id/maxHPText"
-        app:layout_constraintBottom_toTopOf="@id/initiativeText"
+        app:layout_constraintTop_toTopOf="@id/maxHPText"
+        app:layout_constraintBottom_toBottomOf="@id/initiativeText"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/proficiencyValue"
         android:text="@string/proficiency"/>
@@ -385,9 +383,36 @@
         android:cursorVisible="false"
         android:imeOptions="actionDone"
         android:theme="@style/MyCustomEditTextTheme"
-        app:layout_constraintTop_toBottomOf="@id/proficiencyText"
-        app:layout_constraintBottom_toTopOf="@id/proficiencyText"
+        app:layout_constraintTop_toTopOf="@id/proficiencyText"
+        app:layout_constraintBottom_toBottomOf="@id/proficiencyText"
         app:layout_constraintLeft_toRightOf="@id/proficiencyText"
+        app:layout_constraintRight_toLeftOf="@id/maxKiText"
+        android:layout_marginEnd="20dp"/>
+
+    <TextView
+        android:id="@+id/maxKiText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/proficiencyText"
+        app:layout_constraintBottom_toBottomOf="@id/proficiencyText"
+        app:layout_constraintLeft_toRightOf="@id/proficiencyValue"
+        app:layout_constraintRight_toLeftOf="@id/maxKiValue"
+        android:text="@string/maxKi"/>
+
+    <EditText
+        android:id="@+id/maxKiValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:maxLength="2"
+        android:cursorVisible="false"
+        android:imeOptions="actionDone"
+        android:theme="@style/MyCustomEditTextTheme"
+        app:layout_constraintTop_toTopOf="@id/proficiencyText"
+        app:layout_constraintBottom_toBottomOf="@id/proficiencyText"
+        app:layout_constraintLeft_toRightOf="@id/maxKiText"
         app:layout_constraintRight_toRightOf="parent" />
 
 

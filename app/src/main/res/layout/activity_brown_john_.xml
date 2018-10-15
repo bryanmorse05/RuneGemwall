@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.BrownJohn_Activity">
+
+    <ImageView
+        android:id="@+id/brownJohnBackgroundImage"
+        android:contentDescription="@string/brown_john"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/brown_john_background"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:id="@+id/brownJohnTitle"
+        android:text="@string/brown_john"
+        android:textSize="30sp"
+        android:textColor="@color/colorTan"
+        android:padding="10dp"
+        android:background="@drawable/brown_john_title_shape"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/playerOneTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/player1"
+        android:textSize="18sp"
+        android:textColor="@color/colorSaddleBrownComplementary"
+        android:background="@color/colorTan"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintTop_toBottomOf="@id/brownJohnTitle"
+        app:layout_constraintBottom_toTopOf="@id/playerOneD20Box"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/playerOneResult" />
+
+    <TextView
+        android:id="@+id/playerOneResult"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/brown_john_title_shape"
+        android:textColor="@color/colorTan"
+        android:textSize="28sp"
+        android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="@id/playerOneTitle"
+        app:layout_constraintBottom_toBottomOf="@id/playerOneTitle"
+        app:layout_constraintLeft_toRightOf="@id/playerOneTitle"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <!-- Player 1 checkboxes -->
+    <CheckBox
+        android:id="@+id/playerOneD20Box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/d20"
+        android:textColor="@color/colorWhite"
+        android:buttonTint="@color/colorWhite"
+        app:layout_constraintTop_toBottomOf="@id/playerOneTitle"
+        app:layout_constraintBottom_toTopOf="@id/playerTwoTitle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/playerOneD12Box" />
+
+
+    <CheckBox
+        android:id="@+id/playerOneD12Box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/d12"
+        android:textColor="@color/colorWhite"
+        android:buttonTint="@color/colorWhite"
+        app:layout_constraintTop_toTopOf="@id/playerOneD20Box"
+        app:layout_constraintBottom_toBottomOf="@id/playerOneD20Box"
+        app:layout_constraintLeft_toRightOf="@id/playerOneD20Box"
+        app:layout_constraintRight_toLeftOf="@id/playerOneD8Box" />
+
+
+    <CheckBox
+        android:id="@+id/playerOneD8Box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/d8"
+        android:textColor="@color/colorWhite"
+        android:buttonTint="@color/colorWhite"
+        app:layout_constraintTop_toTopOf="@id/playerOneD20Box"
+        app:layout_constraintBottom_toBottomOf="@id/playerOneD20Box"
+        app:layout_constraintLeft_toRightOf="@id/playerOneD12Box"
+        app:layout_constraintRight_toRightOf="parent" />
+    <!-- end Player 1 checkboxes -->
+
+    <TextView
+        android:id="@+id/playerTwoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/player2"
+        android:textSize="18sp"
+        android:textColor="@color/colorSaddleBrownComplementary"
+        android:background="@color/colorTan"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/playerOneD20Box"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/playerTwoResult"
+        app:layout_constraintBottom_toTopOf="@id/playerTwoD20Box"/>
+
+    <TextView
+        android:id="@+id/playerTwoResult"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/brown_john_title_shape"
+        android:textColor="@color/colorTan"
+        android:textSize="28sp"
+        android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="@id/playerTwoTitle"
+        app:layout_constraintBottom_toBottomOf="@id/playerTwoTitle"
+        app:layout_constraintLeft_toRightOf="@id/playerTwoTitle"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <!-- Player 2 checkboxes -->
+    <CheckBox
+        android:id="@+id/playerTwoD20Box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/d20"
+        android:textColor="@color/colorWhite"
+        android:buttonTint="@color/colorWhite"
+        app:layout_constraintTop_toBottomOf="@id/playerTwoTitle"
+        app:layout_constraintBottom_toTopOf="@id/rollButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/playerTwoD12Box" />
+
+    <CheckBox
+        android:id="@+id/playerTwoD12Box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/d12"
+        android:textColor="@color/colorWhite"
+        android:buttonTint="@color/colorWhite"
+        app:layout_constraintTop_toTopOf="@id/playerTwoD20Box"
+        app:layout_constraintBottom_toBottomOf="@id/playerTwoD20Box"
+        app:layout_constraintLeft_toRightOf="@id/playerTwoD20Box"
+        app:layout_constraintRight_toLeftOf="@id/playerTwoD8Box" />
+
+    <CheckBox
+        android:id="@+id/playerTwoD8Box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/d8"
+        android:textColor="@color/colorWhite"
+        android:buttonTint="@color/colorWhite"
+        app:layout_constraintTop_toTopOf="@id/playerTwoD20Box"
+        app:layout_constraintBottom_toBottomOf="@id/playerTwoD20Box"
+        app:layout_constraintLeft_toRightOf="@id/playerTwoD12Box"
+        app:layout_constraintRight_toRightOf="parent" />
+    <!-- end Player 2 checkboxes -->
+
+    <!-- Rolling -->
+    <Button
+        android:id="@+id/rollButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/roll"
+        app:layout_constraintTop_toBottomOf="@id/playerTwoD20Box"
+        app:layout_constraintBottom_toTopOf="@id/resultsWinner"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/resultsWinner"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/brown_john_title_shape"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:textColor="@color/colorTan"
+        app:layout_constraintTop_toBottomOf="@id/rollButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

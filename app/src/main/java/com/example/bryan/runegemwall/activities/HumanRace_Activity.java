@@ -2,13 +2,14 @@ package com.example.bryan.runegemwall.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 
 import com.example.bryan.runegemwall.R;
 
 public class HumanRace_Activity extends AppCompatActivity {
 
-    TextView classDescriptionText;
+    TextView raceDescriptionText;
     String allThisTextStuff;
 
     @Override
@@ -16,7 +17,9 @@ public class HumanRace_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_human_race_);
 
-        classDescriptionText = findViewById(R.id.classDescriptionText);
+        raceDescriptionText = findViewById(R.id.raceDescriptionText);
+
+        raceDescriptionText.setMovementMethod(new ScrollingMovementMethod());
 
         //Back button enabled
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -39,7 +42,7 @@ public class HumanRace_Activity extends AppCompatActivity {
         "Feat: You gain one feat of your choice";
 
 
-        classDescriptionText.setText(allThisTextStuff);
+        raceDescriptionText.setText(allThisTextStuff);
 
     }
 }

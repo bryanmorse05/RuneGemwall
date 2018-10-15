@@ -32,7 +32,8 @@
         android:text="@string/home_page_stats_button"
         android:layout_marginBottom="90dp"
         app:layout_constraintRight_toLeftOf="@id/loreButton"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/button_shape"/>
 
     <Button
         android:layout_height="wrap_content"
@@ -42,7 +43,8 @@
         app:layout_constraintTop_toTopOf="@id/statsButton"
         app:layout_constraintRight_toLeftOf="@id/chartButton"
         app:layout_constraintBottom_toBottomOf="@id/statsButton"
-        app:layout_constraintLeft_toRightOf="@id/statsButton"/>
+        app:layout_constraintLeft_toRightOf="@id/statsButton"
+        android:background="@drawable/button_shape"/>
 
     <Button
         android:id="@+id/chartButton"
@@ -52,7 +54,8 @@
         app:layout_constraintTop_toTopOf="@id/statsButton"
         app:layout_constraintBottom_toBottomOf="@id/statsButton"
         app:layout_constraintLeft_toRightOf="@id/loreButton"
-        app:layout_constraintRight_toLeftOf="@id/classButton"/>
+        app:layout_constraintRight_toLeftOf="@id/classButton"
+        android:background="@drawable/button_shape"/>
 
     <Button
         android:id="@+id/classButton"
@@ -62,7 +65,8 @@
         app:layout_constraintTop_toTopOf="@id/statsButton"
         app:layout_constraintBottom_toBottomOf="@id/statsButton"
         app:layout_constraintLeft_toRightOf="@id/chartButton"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@drawable/button_shape"/>
 
     <!-- Second row of buttons -->
     <Button
@@ -73,7 +77,8 @@
         app:layout_constraintTop_toBottomOf="@id/statsButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/storeButton"/>
+        app:layout_constraintRight_toLeftOf="@id/storeButton"
+        android:background="@drawable/button_shape"/>
 
     <Button
         android:layout_height="wrap_content"
@@ -83,7 +88,8 @@
         app:layout_constraintTop_toTopOf="@id/raceButton"
         app:layout_constraintRight_toLeftOf="@id/googleSheetButton"
         app:layout_constraintBottom_toBottomOf="@id/raceButton"
-        app:layout_constraintLeft_toRightOf="@id/raceButton"/>
+        app:layout_constraintLeft_toRightOf="@id/raceButton"
+        android:background="@drawable/button_shape"/>
 
     <Button
         android:layout_height="wrap_content"
@@ -93,7 +99,8 @@
         app:layout_constraintTop_toTopOf="@id/raceButton"
         app:layout_constraintBottom_toBottomOf="@id/raceButton"
         app:layout_constraintLeft_toRightOf="@id/storeButton"
-        app:layout_constraintRight_toRightOf="@id/brownJohnButton"/>
+        app:layout_constraintRight_toRightOf="@id/brownJohnButton"
+        android:background="@drawable/button_shape"/>
 
     <Button
         android:id="@+id/brownJohnButton"
@@ -103,6 +110,7 @@
         app:layout_constraintTop_toTopOf="@id/raceButton"
         app:layout_constraintBottom_toBottomOf="@id/raceButton"
         app:layout_constraintLeft_toRightOf="@id/googleSheetButton"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@drawable/button_shape"/>
 
 </android.support.constraint.ConstraintLayout>

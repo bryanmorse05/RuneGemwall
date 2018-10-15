@@ -60,4 +60,15 @@
     <string name="b_description">Monastery of the Sore First and Rosy Palma</string>
     <string name="f_description">Cannot tolerate the presence of milk.  Does not take into account negative consequences</string>
 
+    <!-- Brown John -->
+    <string name="brown_john">BROWN JOHN!!</string>
+    <string name="player1">Player 1</string>
+    <string name="vs">VS</string>
+    <string name="player2">Player 2</string>
+    <string name="roll">Roll!</string>
+    <string name="d20">D20</string>
+    <string name="d12">D12</string>
+    <string name="d8">D8</string>
+    <string name="result">Result</string>
+
 </resources>

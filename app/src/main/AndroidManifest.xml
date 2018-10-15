@@ -28,13 +28,21 @@
             android:name=".activities.MonkChart_Activity"
             android:parentActivityName=".activities.HomePage_Activity"
             android:screenOrientation="landscape">
+
         </activity>
         <activity
             android:name=".activities.HumanRace_Activity"
             android:parentActivityName=".activities.HomePage_Activity">
+
         </activity>
-        <activity android:name=".activities.MonkClass_Activity"
+        <activity
+            android:name=".activities.MonkClass_Activity"
             android:parentActivityName=".activities.HumanRace_Activity">
+
+        </activity>
+        <activity android:name=".activities.BrownJohn_Activity"
+            android:parentActivityName=".activities.HomePage_Activity">
+
         </activity>
     </application>
 

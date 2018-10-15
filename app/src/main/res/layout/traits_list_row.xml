@@ -2,7 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:background="@drawable/item_shape"
+    android:background="@drawable/tab_shape"
     android:layout_margin="5dp"
     android:padding="5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">

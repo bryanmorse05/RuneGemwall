@@ -11,7 +11,7 @@ import com.example.bryan.runegemwall.R;
 
 public class HomePage_Activity extends AppCompatActivity {
 
-    Button statsButton, loreButton, chartButton, classButton, raceButton, storeButton, googleSheetButton, otherButton;
+    Button statsButton, loreButton, chartButton, classButton, raceButton, storeButton, googleSheetButton, brownJohnButton;
 
 
     @Override
@@ -26,7 +26,7 @@ public class HomePage_Activity extends AppCompatActivity {
         raceButton = findViewById(R.id.raceButton);
         storeButton = findViewById(R.id.storeButton);
         googleSheetButton = findViewById(R.id.googleSheetButton);
-        otherButton = findViewById(R.id.brownJohnButton);
+        brownJohnButton = findViewById(R.id.brownJohnButton);
 
         statsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +81,14 @@ public class HomePage_Activity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/spreadsheets/d/18gpplrkmJR6B_MSf68brrKnQJGgjkjvZdGI7jymdVeo/edit#gid=903375314"));
                 startActivity(browserIntent);
+            }
+        });
+
+        brownJohnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), BrownJohn_Activity.class);
+                startActivity(intent);
             }
         });
 

@@ -10,5 +10,8 @@
     <color name="colorDarkYellow">#CCCC00</color>
     <color name="colorTan">#D2B48C</color>
     <color name="colorDarkTan">#918151</color>
+    <color name="colorSaddleBrown">#8B4513</color>
+    <color name="colorSienna">#A0522D</color>
+    <color name="colorSaddleBrownComplementary">#13598B</color>
 
 </resources>

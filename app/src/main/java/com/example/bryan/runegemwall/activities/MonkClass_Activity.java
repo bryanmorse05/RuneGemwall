@@ -24,7 +24,7 @@ public class MonkClass_Activity extends AppCompatActivity {
 
         allThisMonk = "Hit Points\n"+
         "Hit Dice: 1D8 per monk level\n"+
-        "Hit Points at 1st Level: 8 + your Constitution modiifer\n"+
+        "Hit Points at 1st Level: 8 + your Constitution modifier\n"+
         "Hit Points at Higher Levels: 1D8 (or 5) + your Constitution modifier per monk level after 1st\n\n"+
         "Proficiencies\n"+
         "Armor: None\n"+

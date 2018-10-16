@@ -41,6 +41,8 @@ public class BrownJohn_Activity extends AppCompatActivity {
         playerTwoD12Box = findViewById(R.id.playerTwoD12Box);
         playerTwoD8Box = findViewById(R.id.playerTwoD8Box);
 
+        gameResult.setVisibility(View.INVISIBLE);
+
         rollButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,6 +56,7 @@ public class BrownJohn_Activity extends AppCompatActivity {
 
                 //WHO WINS???
                 determineWinner(playerOneScore, playerTwoScore);
+                gameResult.setVisibility(View.VISIBLE);
             }
         });
     }

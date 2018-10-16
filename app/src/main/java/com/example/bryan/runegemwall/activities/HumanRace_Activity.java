@@ -32,8 +32,8 @@ public class HumanRace_Activity extends AppCompatActivity {
                 "Regardless of your position in that range, your size is Medium.\n\n"+
         "Speed:\nYour base walking speed is 30 feet.\n\n"+
         "Languages:\nYou can speak, read, and write Common and one extra language of your choice.  " +
-                "Humans typically larn the languages of other peoples they deal with, including obscure dialects.  " +
-                "THey are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, " +
+                "Humans typically learn the languages of other peoples they deal with, including obscure dialects.  " +
+                "They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, " +
                 "Elvish musical expressions, Dwarvish military phrases, and so on.\n\n"+
         "Variant Human Traits:\nIf your campaign uses the optional feat rules from chapter 5, your " +
                 "Dungeon Master might allow these variant traits, all of which replace the human's ability score traits:\n\n"+
